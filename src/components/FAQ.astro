@@ -1,0 +1,83 @@
+---
+const faqs = [
+  {
+    question: "What services does Dwizzy Infra offer?",
+    answer: "At Dwizzy Infra, we offer a broad spectrum of services in the construction industry, including road construction, railway development, bridge engineering, urban transit systems, and energy infrastructure projects. Our expertise allows us to manage a wide range of infrastructure projects effectively."
+  },
+  {
+    question: "What makes Dwizzy Infra a trusted partner in construction?",
+    answer: "With years of experience and a dedicated team of professionals, we have built a reputation for excellence in the construction industry. We focus on delivering high-quality projects, maintaining strict safety standards, and embracing innovation to ensure we always meet and exceed our clients' expectations."
+  },
+  {
+    question: "How does Dwizzy Infra ensure project quality and safety?",
+    answer: "Quality and safety are at the heart of everything we do at Dwizzy Infra. Our skilled professionals work diligently to ensure every project is completed to the highest standards, on time, and within budget. We are committed to using the best practices and modern technology to achieve exceptional results."
+  },
+  {
+    question: "What sets Dwizzy Infra apart from other construction companies?",
+    answer: "Our commitment to innovation, quality, and safety sets us apart. We are more than just a construction company; we are a reliable partner dedicated to delivering outstanding infrastructure solutions. Our team's passion for excellence and our client-centric approach ensure that we consistently deliver on our promises."
+  },
+  {
+    question: "How does Dwizzy Infra contribute to community development?",
+    answer: "We believe in contributing positively to the communities we serve by delivering projects that enhance social and economic development. Our projects are designed to benefit the community by improving infrastructure and creating sustainable growth opportunities."
+  }
+];
+---
+
+<div class="container mx-auto px-4 py-8">
+  <h2 class="text-3xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+  <div class="space-y-4">
+    {faqs.map((faq, index) => (
+      <div class="border border-gray-200 rounded-lg text-xl">
+        <button
+          class="flex justify-between items-center w-full p-4 text-left bg-white hover:bg-gray-50 focus:outline-none"
+          id={`faq-button-${index}`}
+        >
+          <span class="font-bold">{faq.question}</span>
+          <svg
+            class="w-5 h-5 text-gray-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </button>
+        <div
+          class="hidden px-4 pb-4"
+          id={`faq-answer-${index}`}
+        >
+          <p class="text-gray-700 font-medium">{faq.answer}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const faqButtons = document.querySelectorAll('[id^="faq-button-"]');
+    
+    faqButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const index = button.id.split('-')[2];
+        const answer = document.getElementById(`faq-answer-${index}`);
+        const icon = button.querySelector('svg');
+        
+        answer.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+      });
+    });
+  });
+</script>
+
+<style>
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
+</style>

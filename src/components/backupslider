@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+---
+
+<div class=" lg:grid grid-cols-3 trigger mt-[100px]">
+    
+    <div class=" lg:flex items-center justify-center bg-transparent-screen col-span-1 one">
+        <div class="absolute">
+            <Image width={100} height={100} src="/Site/1.jpg" alt="line" class="lg:w-[450px] h-[70vh] " />
+        </div>
+        <div class="text-white mt-5 z-10" >
+            <h1 class=" font-bold mb-2 pl-4 lg:text-5xl text-2xl">Power Transmission Erection Job</h1>
+            
+            <h1 class=" font-bold mb-2 pl-4 lg:text-2xl text-md">Monopoles Multi circuit 66KVAM,132KVA,220KVA,400KVA Heavy Lifting Erection Job with Telescopic Crane at Height of 75Mtrs.</h1>
+            
+        </div>
+        
+    </div>
+
+    <div class=" lg:flex items-center justify-center bg-transparent-screen col-span-1 two">
+        <div class="absolute">
+            <Image width={100} height={100} src="/Site/1.jpg" alt="line" class="lg:w-[450px] h-[70vh] " />
+        </div>
+        <div class="text-white mt-5 z-10" >
+            <h1 class=" font-bold mb-2 pl-4 lg:text-5xl text-2xl">Power Transmission Erection Job</h1>
+            
+            <h1 class=" font-bold mb-2 pl-4 lg:text-2xl text-md">Monopoles Multi circuit 66KVAM,132KVA,220KVA,400KVA Heavy Lifting Erection Job with Telescopic Crane at Height of 75Mtrs.</h1>
+            
+        </div>
+        
+    </div>
+
+        <div class=" lg:flex items-center justify-center bg-transparent-screen col-span-1 three">
+        <div class="absolute">
+            <Image width={100} height={100} src="/Site/1.jpg" alt="line" class="lg:w-[450px] h-[70vh] " />
+        </div>
+        <div class="text-white mt-5 z-10" >
+            <h1 class=" font-bold mb-2 pl-4 lg:text-5xl text-2xl">Power Transmission Erection Job</h1>
+            
+            <h1 class=" font-bold mb-2 pl-4 lg:text-2xl text-md">Monopoles Multi circuit 66KVAM,132KVA,220KVA,400KVA Heavy Lifting Erection Job with Telescopic Crane at Height of 75Mtrs.</h1>
+            
+        </div>
+        
+    </div>
+    </div>
+
+    
+
+
+
+
+</div>
+
+
+<script>
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import gsap from "gsap";
+  
+    gsap.registerPlugin(ScrollTrigger);
+  
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".trigger",
+        start: "top 40%",
+        end: "+=500",
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1,
+        markers: true,
+      }
+    });
+  
+    timeline
+      .to(".one", { xPercent:100,scale: 1.5, zIndex:1 })
+      .to(".one", { xPercent:0,scale: 1, zIndex:0 })
+      .to(".two", { scale: 1.5,zIndex:1  })
+      .to(".two", {scale: 1, zIndex:0 })
+      .to(".three", { xPercent:-100,scale: 1.5,zIndex:1  })
+      .to(".three", { xPercent:0,scale: 1,zIndex:0  })
+ 
+  
+  </script>

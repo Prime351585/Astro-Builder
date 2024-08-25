@@ -1,127 +1,97 @@
----
-
----
-
-<div class="relative w-full overflow-hidden" id="image-slider">
-
-    <div class="flex transition-transform duration-300 ease-in-out" id="slider-container">
-        <!-- Images will be dynamically inserted here -->
+<div class="relative w-full overflow-hidden " id="image-slider">
+  <div class="flex transition-transform duration-500 ease-in-out" id="slider-container">
+      <!-- Images will be dynamically inserted here -->
     </div>
-    <div class="bg-black absolute top-[70%] left-0 right-0 bottom-0 m-auto justify-center lg:text-3xl font-bold rounded-2xl p-3 pt-2 pb-2 w-max h-max">
-        <a href="#" class="text-white  hover:text-blue-300">Contact Us</a>
+    <div class="absolute  top-[20%]   left-4 ml-auto mr-auto lg:w-[500px] text-left font-bold ">
+      <div class="text-[30px] lg:text-[70px] text-primary ml-10">Dwizzy Infra </div>
+      <div class="lg:text-[70px] font-semibold text-white lg:-mt-3 ml-10">We Do Easy</div>
     </div>
-    <button id="prev-button" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-      </svg>
-    </button>
-  
-    <button id="next-button" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-      </svg>
-    </button>
+  <div class="absolute inset-0 flex items-center justify-between ">
+      <button id="prev-button" class="bg-white/50 p-2 rounded-full shadow-md hover:bg-white/75 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+      </button>
+      <button id="next-button" class="bg-white/50 p-2 rounded-full shadow-md hover:bg-white/75 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+      </button>
   </div>
-  
-  <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50  hidden ">
-    <div class="bg-white backdrop:blur-lg rounded-lg m-0 max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-      <img id="modal-image" src="" alt="" class="w-full h-64 object-cover rounded-tl-lg rounded-tr-lg shadow-lg mb-4 ">
-      <div class="p-2">
+</div>
 
-          <h2 id="modal-title" class="text-2xl font-bold mb-2"></h2>
-          <p id="modal-description" class="text-gray-700"></p>
-          <button id="close-modal" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Close</button>
-    </div>
-    </div>
-  </div>
+<script>
+const images = [
+  { src: '/SliderImages/1.jpg', alt: 'Mountain', title: 'DELHI-MEERUT RRTS' },
+  { src: '/SliderImages/2.jpg', alt: 'River', title: 'Serene River Scene' },
+  { src: '/SliderImages/3.jpg', alt: 'Forest', title: 'Lush Green Forest' },
+  { src: '/SliderImages/4.jpg', alt: 'Waterfall', title: 'Cascading Waterfall' },
+];
+
+let currentIndex = 0;
+const sliderContainer = document.getElementById('slider-container');
+const prevButton = document.getElementById('prev-button');
+const nextButton = document.getElementById('next-button');
+
+function createImageElement(image:any) {
+  const div = document.createElement('div');
+  div.className = 'flex-shrink-0 w-full transition-opacity duration-500 ease-in-out';
+  div.innerHTML = `
+      <div class="relative">
+          <img src="${image.src}" alt="${image.alt}" class="w-full  lg:h-[80vh]  h-64  object-cover  shadow-lg cursor-pointer ">
+          <div class="absolute inset-0 flex  bg-black bg-opacity-40">
+              <h2 class=" absolute text-white text-xl lg:text-[70px] lg:top-[45%] top-[50%]  ml-14 font-bold text-center lg:mt-[100px] ">${image.title}</h2>
+          </div>
+      </div>
+  `;
+  return div;
+}
+
+function updateSlider() {
+  const totalImages = images.length;
+  if (sliderContainer) {
+    sliderContainer.innerHTML = '';
+    
+    for (let i = -1; i <= 1; i++) {
+        const index = (currentIndex + i + totalImages) % totalImages;
+        const imageElement = createImageElement(images[index]);
+        sliderContainer.appendChild(imageElement);
+    }
+    
+    sliderContainer.style.transform = 'translateX(-100%)';
+  }
+}
+
+function slideImage(direction:any) {
+  const totalImages = images.length;
+  currentIndex = (currentIndex + direction + totalImages) % totalImages;
   
-  <script>
-    const images = [
-      { src: '/SliderImages/1.jpg', alt: 'Mountain', title: 'Mountain View', description: 'A beautiful mountain landscape.' },
-      { src: '/SliderImages/1.jpg', alt: 'River', title: 'River Scene', description: 'A serene river flowing through a forest.' },
-      { src: '/SliderImages/1.jpg', alt: 'Forest', title: 'Dense Forest', description: 'A lush, green forest full of tall trees.' },
-      { src: 'https://img.freepik.com/premium-photo/mountainous-waterfall-cascading-through-lush-meadows-blue-sky_96461-14207.jpg?w=740', alt: 'Forest', title: 'Dense Forest', description: 'A lush, green forest full of tall trees.' },
-    ];
+  const transitionDuration = 500; // match this with the CSS transition duration
+  if (sliderContainer) {
+    sliderContainer.style.transition = `transform ${transitionDuration}ms ease-in-out`;
+  }
+  if (sliderContainer) {
+    sliderContainer.style.transform = direction > 0 ? 'translateX(-200%)' : 'translateX(0)';
+  }
   
-    let currentIndex = 0;
-  
-    const sliderContainer = document.getElementById('slider-container');
-    const prevButton = document.getElementById('prev-button');
-    const nextButton = document.getElementById('next-button');
-    const modal = document.getElementById('modal');
-    const modalImage = document.getElementById('modal-image') as HTMLImageElement;
-    const modalTitle = document.getElementById('modal-title');
-    const modalDescription = document.getElementById('modal-description');
-    const closeModal = document.getElementById('close-modal');
-  
-    function updateSlider() {
+  setTimeout(() => {
       if (sliderContainer) {
-        sliderContainer.innerHTML = '';
-        images.forEach((image, index) => {
-          const div = document.createElement('div');
-          div.className = `flex-shrink-0 w-full px-4 transition-all duration-300 ease-in-out ${
-            index === currentIndex ? 'scale-100 opacity-100' : 'scale-75 opacity-50'
-          }`;
-          div.innerHTML = `
-            <Image src="${image.src}" alt="${image.alt}" class="w-full  lg:h-[80vh]  h-64  object-cover rounded-lg shadow-lg cursor-pointer ">
-          `;
-          div.onclick = () => openModal(index);
-          sliderContainer.appendChild(div);
-        });
-        sliderContainer.style.transform = `translateX(${-currentIndex * 100}%)`;
+        sliderContainer.style.transition = 'none';
       }
-    }
-  
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
       updateSlider();
-    }
-  
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateSlider();
-    }
-  
-    function openModal(index:any) {
-      const image = images[index];
-      if (modal) {
-        if (modalImage) {
-          modalImage.src = image.src;
-        }
-        modalImage.alt = image.alt;
-        if (modalTitle) {
-          modalTitle.textContent = image.title;
-        }
-        if (modalDescription) {
-          modalDescription.textContent = image.description;
-        }
-        modal.classList.remove('hidden');
-      }
-    }
-  
-    if (prevButton) {
-      prevButton.addEventListener('click', prevImage);
-    }
-    if (nextButton) {
-      nextButton.addEventListener('click', nextImage);
-    }
-    if (closeModal && modal) {
-      closeModal.addEventListener('click', () => modal.classList.add('hidden'));
-    }
-  
-    // Initialize the slider
-    updateSlider();
-  
-    // Add mousewheel event listener
-    // const imageSlider = document.getElementById('image-slider');
-    // if (imageSlider) {
-    //   imageSlider.addEventListener('wheel', (e) => {
-    //     e.preventDefault();
-    //     if (e.deltaX > 0 || e.deltaY > 0) {
-    //       nextImage();
-    //     } else {
-    //       prevImage();
-    //     }
-    //   });
-    // }
-  </script>
+  }, transitionDuration);
+}
+
+if (prevButton) {
+  prevButton.addEventListener('click', () => slideImage(-1));
+}
+if (nextButton) {
+  nextButton.addEventListener('click', () => slideImage(1));
+}
+
+// Auto-switch images every 5 seconds
+setInterval(() => slideImage(1), 5000);
+
+// Initialize the slider
+updateSlider();
+</script>
