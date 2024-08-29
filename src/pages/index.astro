@@ -1,12 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 import Slider from '../components/Slider.astro';
+import aboutImage from "/public/Site/2.webp";
 import Layout from '../layouts/Layout.astro';
-import AboutImage from "./public/Site/2.jpg";
 import CompanySlider from '../components/CompanySlider.astro';
 import WhatWeDo from '../components/WhatWeDo.astro';
 import CoreLine from '../components/CoreLine.astro';
-import mission from '../components/mission.astro';
 ---
 
 <Layout title="Dwizzy Infra" >
@@ -16,7 +15,7 @@ import mission from '../components/mission.astro';
 </section>
 
 <section class=" w-full text-black m-0 bg-transparent flex mt-10 lg:pt-20 lg:pl-20 lg:pr-20">
-	<img src="/Site/2.jpg" alt="hero" class="w-[30%] rounded-lg hidden lg:block " />
+	<Image src={aboutImage} alt="hero" class="w-[30%] rounded-lg hidden lg:block " />
 	<div>
 		<!-- <h1 class="text-4xl lg:text-6xl font-bold mb-2 pl-4">About Us</h1> -->
 		<p class="text-lg lg:text-xl  pr-6 pl-4">
@@ -29,7 +28,7 @@ import mission from '../components/mission.astro';
 		<h1 class="text-4xl font-bold mb-2 p-4 text-center">Our Clients</h1>
 		<CompanySlider />
 	</div>
-	<img src="/Site/5.jpg" alt="hero" class="" />
+	<img src="/Site/5.webp" alt="hero" class="" />
 
 
 <section class=" w-full text-black  bg-gray-100   lg:p-10" >
@@ -39,7 +38,7 @@ import mission from '../components/mission.astro';
 	<CoreLine/>
 </section>
 
-<section class=" w-full text-black m-0 bg-gray-100  lg:p-20 bg-[url('/Site/6.png')] bg-cover" >
+<section class=" w-full text-black m-0 bg-gray-100  lg:p-20 bg-[url('/Site/6.webp')] bg-cover" >
 	
 	<div class="border-2 border-white   lg:pl-10 lg:pr-10 lg:pb-10 rounded-2xl ">
 
