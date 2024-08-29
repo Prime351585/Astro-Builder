@@ -69,8 +69,8 @@ const faqs = [
         const answer = document.getElementById(`faq-answer-${index}`);
         const icon = button.querySelector('svg');
         
-        answer.classList.toggle('hidden');
-        icon.classList.toggle('rotate-180');
+        answer?.classList.toggle('hidden');
+        icon?.classList.toggle('rotate-180');
       });
     });
   });
