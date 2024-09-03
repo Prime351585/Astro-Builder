@@ -1,0 +1,17 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import FAQ from '../components/FAQ.astro';
+---
+
+<Layout title="Portfolio">
+    <main class="container mx-auto px-4 py-8 lg:pl-20 lg:pr-20">
+      <h1 class=" text-3xl lg:text-6xl font-bold mb-6">Our Portfolio</h1>
+      <!-- Embed PDF -->
+      <div class="flex justify-center mt-8 items-center">
+        <object data="/Canva/portfolio.pdf" type="application/pdf" width="600" height="800">
+          <p>Your browser does not support PDFs. <a href="/public/Canva/portfolio.pdf"><a href="/Canva/portfolio.pdf" class="text-blue-500">Download the PDF</a></a>.</p>
+        </object>
+      </div>
+    </main>
+</Layout>
