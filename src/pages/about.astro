@@ -37,32 +37,36 @@ import FAQ from '../components/FAQ.astro';
         </div>
       </div>
       <div class="lg:flex items-center justify-center gap-7 ">
-        <div class="w-[350px] h-[350px] flex flex-col items-center justify-center">
-          <div>
+        <div class="w-[350px] h-[350px] flex flex-col items-center justify-center mb-20">
+          <div >
             <Image src="/Canva/AkshayPanwar.webp" alt="Team member" width={400} height={400} class="pic rounded-[50%] shadow-lg">
             </div>
-            <h1 class="text-3xl font-bold text-black mt-2">Akshay Panwar</h1>
-            <p class="text-sm">Head of Business Development</p>
+            <div>
+              <h1 class="text-3xl font-bold text-black mt-2">Akshay Panwar</h1>
+              <p class="text-sm text-center">Head of Business Development</p>
+            </div>
           </div>
 
-        <div class="w-[350px] h-[350px] flex flex-col items-center justify-center">
+        <div class="w-[350px] h-[350px] flex flex-col items-center justify-center mb-20">
           <div>
             <Image src="/Canva/RahulNagar.webp" alt="Team member" width={400} height={400} class="pic rounded-[50%] shadow-lg">
             </div>
-            <h1 class="text-3xl font-bold text-black mt-2">Rahul Nagar</h1>
-            <p class="text-sm">Head of Operations</p>
+            <div >
+              <h1 class="text-3xl font-bold text-black mt-2">Rahul Nagar</h1>
+              <p class="text-sm text-center">Head of Operations</p>
+            </div>
           </div>
           
-        <div class="w-[350px] h-[350px] flex flex-col items-center justify-center">
+        <div class="w-[350px] h-[350px] flex flex-col items-center justify-center mb-20 ">
           <div>
             <Image src="/Canva/PratapSinghJindal.webp" alt="Team member" width={400} height={400} class="pic rounded-[50%] shadow-lg">
             </div>
             <h1 class="text-3xl font-bold text-black mt-2">Pratap Singh </h1>
-            <p class="text-sm">Project Manager</p>
+            <p class="text-sm text-center">Project Manager</p>
           </div>
       
       </div>
-    <div class="text-5xl font-bold pt-10">
+    <div class="text-5xl font-bold ">
       <div class="line mt-10 w-[100%] h-1 bg-primary rounded-lg "></div>
 
       <FAQ/>
@@ -75,6 +79,9 @@ import FAQ from '../components/FAQ.astro';
   import gsap from "gsap";
   import ScrollTrigger from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
+  if ( window.innerWidth >= 1024) {
+// do some magic
+
   gsap.from(".line", {
     x: 100,
     opacity: 0,
@@ -93,13 +100,12 @@ import FAQ from '../components/FAQ.astro';
     duration: 1,
     stagger: 0.2,
     scrollTrigger: {
-      trigger: "pic",
-      start: "top bottom",
+      trigger: ".pic",
+      start: "top 50%",
       end: "bottom bottom",
     },
     scrub: true,
     markers: true,
   });
-
-
+  }
 </script>
