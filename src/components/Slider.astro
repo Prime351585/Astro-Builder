@@ -1,97 +1,111 @@
-<div class="relative w-full overflow-hidden " id="image-slider">
+---
+// ImageSlider.astro
+import Image from "astro/components/Image.astro";
+const images = [
+  { src: "/SliderImages/6.webp", alt: "Monopole Transmission", title: "66 kV Monopole Transmission" },
+  { src: "/SliderImages/1.webp", alt: "Mountain", title: "Piling Job With Hydraulic Rig Machine" },
+  { src: "/SliderImages/2.webp", alt: "River", title: "Custom Cage Construction" },
+  { src: "/SliderImages/3.webp", alt: "Forest", title: "Pile Foundation" },
+  { src: "/SliderImages/4.webp", alt: "Waterfall", title: "Pile Foundation & Pile Chipping" },
+  { src: "/SliderImages/5.webp", alt: "Waterfall", title: "Monopole Erection" },
+];
+---
+
+<div class="relative w-full overflow-hidden" id="image-slider">
   <div class="flex transition-transform duration-500 ease-in-out" id="slider-container">
-      <!-- Images will be dynamically inserted here -->
-    </div>
-    <div class="absolute  top-[30%]   left-4 ml-auto mr-auto lg:w-[500px] text-left font-bold ">
-      <div class="text-[30px] lg:text-[50px] text-primary ml-10">Dwizzy Infra </div>
-      <div class="lg:text-[50px] font-semibold text-white lg:-mt-3 ml-10">We Do Easy</div>
-    </div>
-  <div class="absolute inset-0 flex items-center justify-between ">
-      <button id="prev-button" class="bg-white/50 p-2 rounded-full shadow-md hover:bg-white/75 transition-colors">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-          </svg>
-      </button>
-      <button id="next-button" class="bg-white/50 p-2 rounded-full shadow-md hover:bg-white/75 transition-colors">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-          </svg>
-      </button>
+    {images.map((image, index) => (
+      <div class="flex-shrink-0 w-full">
+        <div class="relative">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width="100"
+            height="100"
+            class="w-full h-64 lg:h-[80vh] object-cover shadow-lg"
+          />
+          <div class="absolute inset-0 flex items-center   bg-black bg-opacity-40">
+            <h2 class="ml-10 text-white text-xl lg:text-5xl font-bold text-center">
+              <div class="absolute top-[30%] text-primary font-semibold">Dwizzy Infra </div>
+              <div class="absolute top-[42%] font-semibold">We Do Easy</div>
+              <div class="absolute top-[55%]">{image.title}</div>
+              </h2>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="absolute inset-x-0 bottom-0 h-1 bg-gray-300">
+    <div class="h-full bg-blue-500 transition-all duration-500 ease-in-out" id="progress-bar"></div>
+  </div>
+
+  <div class="absolute inset-y-0 left-0 flex items-center">
+    <button id="prev-button" class="bg-white/50 p-2 rounded-r-full shadow-md hover:bg-white/75 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div class="absolute inset-y-0 right-0 flex items-center">
+    <button id="next-button" class="bg-white/50 p-2 rounded-l-full shadow-md hover:bg-white/75 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
   </div>
 </div>
 
 <script>
-const images = [
-  { src: '/SliderImages/1.webp', alt: 'Mountain', title: 'DELHI-MEERUT RRTS' },
-  { src: '/SliderImages/2.webp', alt: 'River', title: 'Custom Cage Making' },
-  { src: '/SliderImages/3.webp', alt: 'Forest', title: 'Lush Green Forest' },
-  { src: '/SliderImages/4.webp', alt: 'Waterfall', title: 'Cascading Waterfall' },
-];
+  const sliderContainer = document.getElementById('slider-container');
+  const prevButton = document.getElementById('prev-button');
+  const nextButton = document.getElementById('next-button');
+  const progressBar = document.getElementById('progress-bar');
+  const imageCount = document.querySelectorAll('#slider-container > div').length;
+  let currentIndex = 0;
+  let autoSlideInterval;
 
-let currentIndex = 0;
-const sliderContainer = document.getElementById('slider-container');
-const prevButton = document.getElementById('prev-button');
-const nextButton = document.getElementById('next-button');
-
-function createImageElement(image:any) {
-  const div = document.createElement('div');
-  div.className = 'flex-shrink-0 w-full transition-opacity duration-500 ease-in-out';
-  div.innerHTML = `
-      <div class="relative">
-          <img src="${image.src}" alt="${image.alt}" class="w-full  lg:h-[80vh]  h-64  object-cover  shadow-lg cursor-pointer ">
-          <div class="absolute inset-0 flex  bg-black bg-opacity-40">
-              <h2 class=" absolute text-white text-xl lg:text-[50px] lg:top-[40%] top-[60%]  ml-14 font-bold text-center lg:mt-[100px] ">${image.title}</h2>
-          </div>
-      </div>
-  `;
-  return div;
-}
-
-function updateSlider() {
-  const totalImages = images.length;
-  if (sliderContainer) {
-    sliderContainer.innerHTML = '';
-    
-    for (let i = -1; i <= 1; i++) {
-        const index = (currentIndex + i + totalImages) % totalImages;
-        const imageElement = createImageElement(images[index]);
-        sliderContainer.appendChild(imageElement);
+  function updateSlider() {
+    if (sliderContainer) {
+      sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
-    
-    sliderContainer.style.transform = 'translateX(-100%)';
+    if (progressBar) {
+      progressBar.style.width = `${((currentIndex + 1) / imageCount) * 100}%`;
+    }
   }
-}
 
-function slideImage(direction:any) {
-  const totalImages = images.length;
-  currentIndex = (currentIndex + direction + totalImages) % totalImages;
-  
-  const transitionDuration = 500; // match this with the CSS transition duration
-  if (sliderContainer) {
-    sliderContainer.style.transition = `transform ${transitionDuration}ms ease-in-out`;
+  function slideImage(direction) {
+    currentIndex = (currentIndex + direction + imageCount) % imageCount;
+    updateSlider();
+    resetAutoSlide();
   }
-  if (sliderContainer) {
-    sliderContainer.style.transform = direction > 0 ? 'translateX(-200%)' : 'translateX(0)';
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+      slideImage(1);
+    }, 5000); // Change slide every 5 seconds
   }
-  
-  setTimeout(() => {
-      if (sliderContainer) {
-        sliderContainer.style.transition = 'none';
-      }
-      updateSlider();
-  }, transitionDuration);
-}
 
-if (prevButton) {
-  prevButton.addEventListener('click', () => slideImage(-1));
-}
-if (nextButton) {
-  nextButton.addEventListener('click', () => slideImage(1));
-}
+  function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+  }
 
-// Auto-switch images every 5 seconds
-setInterval(() => slideImage(1), 5000);
+  if (prevButton) {
+    prevButton.addEventListener('click', () => slideImage(-1));
+  }
+  if (nextButton) {
+    nextButton.addEventListener('click', () => slideImage(1));
+  }
 
-// Initialize the slider
-updateSlider();
+  // Initialize the slider and start auto-sliding
+  updateSlider();
+  startAutoSlide();
+
+  // Optional: Pause auto-sliding when hovering over the slider
+  const imageSlider = document.getElementById('image-slider');
+  if (imageSlider) {
+    imageSlider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+    imageSlider.addEventListener('mouseleave', startAutoSlide);
+  }
 </script>
