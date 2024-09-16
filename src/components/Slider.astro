@@ -63,7 +63,7 @@ const images = [
   const progressBar = document.getElementById('progress-bar');
   const imageCount = document.querySelectorAll('#slider-container > div').length;
   let currentIndex = 0;
-  let autoSlideInterval;
+  let autoSlideInterval: number | any;
 
   function updateSlider() {
     if (sliderContainer) {
@@ -74,7 +74,7 @@ const images = [
     }
   }
 
-  function slideImage(direction) {
+  function slideImage(direction: number) {
     currentIndex = (currentIndex + direction + imageCount) % imageCount;
     updateSlider();
     resetAutoSlide();
