@@ -2,12 +2,12 @@
 // ImageSlider.astro
 import Image from "astro/components/Image.astro";
 const images = [
-  { src: "/SliderImages/6.webp", alt: "Monopole Transmission", title: "66 kV Monopole Transmission" },
-  { src: "/SliderImages/1.webp", alt: "Mountain", title: "Piling Job With Hydraulic Rig Machine" },
-  { src: "/SliderImages/2.webp", alt: "River", title: "Custom Cage Construction" },
-  { src: "/SliderImages/3.webp", alt: "Forest", title: "Pile Foundation" },
-  { src: "/SliderImages/4.webp", alt: "Waterfall", title: "Pile Foundation & Pile Chipping" },
-  { src: "/SliderImages/5.webp", alt: "Waterfall", title: "Monopole Erection" },
+  { src: "/SliderImages/1.webp", alt: "monopole", title: "Monopole Erection" },
+  { src: "/SliderImages/2.webp", alt: "Special Cage", title: "Special Cage Construction" },
+  { src: "/SliderImages/3.webp", alt: "Pile Foundation", title: "Pile Foundation" },
+  // { src: "/SliderImages/4.webp", alt: "Waterfall", title: "Pile Chipping" },
+  // { src: "/SliderImages/5.webp", alt: "Waterfall", title: "Piling Job With Hydraulic Rig Machine" },
+  // { src: "/SliderImages/6.webp", alt: "Monopole Transmission", title: "66 kV Monopole Transmission" },
 ];
 ---
 
@@ -21,7 +21,7 @@ const images = [
             alt={image.alt}
             width="100"
             height="100"
-            class="w-full h-64 lg:h-[80vh] object-cover shadow-lg"
+            class="w-full h-128  object-cover shadow-lg"
           />
           <div class="absolute inset-0 flex items-center   bg-black bg-opacity-40">
             <h2 class="ml-10 text-white text-xl lg:text-5xl font-bold text-center">
