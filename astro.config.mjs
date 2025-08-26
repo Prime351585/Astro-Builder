@@ -8,5 +8,7 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   integrations: [tailwind(), sitemap()],
   output: "server",
-  adapter: cloudflare()
+  adapter: cloudflare(),
+  site:"https://dwizzyinfra.com/"
+  
 });

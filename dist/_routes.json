@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/_astro/*",
+    "/favicon.svg",
+    "/icon.webp",
+    "/instagram-icon.svg",
+    "/linkedin-icon.svg",
+    "/Canva/*",
+    "/Partners/*",
+    "/Site/*",
+    "/SliderImages/*"
+  ]
+}
