@@ -12,6 +12,7 @@
     "/Canva/*",
     "/Partners/*",
     "/Site/*",
-    "/SliderImages/*"
+    "/SliderImages/*",
+    "/about"
   ]
 }
