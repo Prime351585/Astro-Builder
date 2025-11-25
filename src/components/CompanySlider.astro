@@ -1,112 +1,148 @@
-<div class="w-full overflow-hidden bg-gradient-to-r from-gray-50 via-white to-gray-50 py-12 relative">
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-transparent pointer-events-none"></div>
-    <div class="relative flex animate-scroll">
-      <div class="flex space-x-16 mx-8 logo-slide items-center">
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/Bajaj.webp" alt="Bajaj" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/bajel.webp" alt="bajel" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/Afcons.webp" alt="Afcons" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/Hgiel.webp" alt="Hgiel" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/HP.webp" alt="HP" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/LT.webp" alt="LT" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/NCC.webp" alt="NCC" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/Rajshyama.webp" alt="raj shyama" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-      </div>
-      <div class="flex space-x-16 mx-8 logo-slide items-center">
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/Bajaj.webp" alt="Bajaj" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/bajel.webp" alt="bajel" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/Afcons.webp" alt="Afcons" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/Hgiel.webp" alt="Hgiel" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/HP.webp" alt="HP" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/LT.webp" alt="LT" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/NCC.webp" alt="NCC" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-        <div class="transform hover:scale-110 transition-transform duration-300">
-          <img src="/Partners/Rajshyama.webp" alt="raj shyama" class="w-auto h-[70px] filter grayscale hover:grayscale-0 transition-all duration-300">
-        </div>
-      </div>
+---
+const partners = [
+  { name: "Bajaj", logo: "/Partners/Bajaj.webp" },
+  { name: "Bajel", logo: "/Partners/bajel.webp" },
+  { name: "Afcons", logo: "/Partners/Afcons.webp" },
+  { name: "Ayana", logo: "/Partners/Ayana.png" },
+  { name: "Hgiel", logo: "/Partners/Hgiel.webp" },
+  { name: "HP", logo: "/Partners/HP.webp" },
+  { name: "L&T", logo: "/Partners/LT.webp" },
+  { name: "NCC", logo: "/Partners/NCC.webp" },
+  { name: "Rajshyama", logo: "/Partners/Rajshyama.webp" },
+  { name: "NHIT", logo: "/Partners/NHIT.webp" },
+  { name: "Kalpatru", logo: "/Partners/Kalpatru.webp" },
+  { name: "Ganga", logo: "/Partners/Ganga.webp" },
+  { name: "PECPL", logo: "/Partners/PECPL.webp" },
+];
+---
+
+<div
+  class="w-full overflow-hidden bg-gradient-to-r from-gray-50 via-white to-gray-50 py-12 relative"
+>
+  <!-- Gradient overlay -->
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-transparent pointer-events-none"
+  >
+  </div>
+
+  <!-- Fade edges -->
+  <div
+    class="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none"
+  >
+  </div>
+
+  <!-- Slider container -->
+  <div class="slider-container relative">
+    <div class="slider-track flex items-center gap-8 md:gap-12 lg:gap-16">
+      <!-- First set of logos -->
+      {
+        partners.map((partner) => (
+          <div class="logo-item flex-shrink-0 transform hover:scale-110 transition-transform duration-300">
+            <img
+              src={partner.logo}
+              alt={partner.name}
+              class="h-12 md:h-16 lg:h-20 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              loading="lazy"
+            />
+          </div>
+        ))
+      }
+      <!-- Duplicate set for seamless loop -->
+      {
+        partners.map((partner) => (
+          <div class="logo-item flex-shrink-0 transform hover:scale-110 transition-transform duration-300">
+            <img
+              src={partner.logo}
+              alt={partner.name}
+              class="h-12 md:h-16 lg:h-20 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              loading="lazy"
+            />
+          </div>
+        ))
+      }
+      <!-- Third set for extra smooth scrolling -->
+      {
+        partners.map((partner) => (
+          <div class="logo-item flex-shrink-0 transform hover:scale-110 transition-transform duration-300">
+            <img
+              src={partner.logo}
+              alt={partner.name}
+              class="h-12 md:h-16 lg:h-20 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              loading="lazy"
+            />
+          </div>
+        ))
+      }
     </div>
   </div>
-  
-  <style>
-    .animate-scroll {
-      animation: scroll 40s linear infinite;
+</div>
+
+<style>
+  .slider-container {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .slider-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 60s linear infinite;
+  }
+
+  .slider-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
     }
-    .animate-scroll:hover {
-      animation-play-state: paused;
+    100% {
+      transform: translateX(calc(-100% / 3));
     }
-    @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-100% - 4rem));
-      }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .slider-track {
+      animation-duration: 40s;
     }
-    .logo-slide {
-      flex: 0 0 auto;
+  }
+
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .slider-track {
+      animation-duration: 50s;
     }
-    @media (min-width: 768px) {
-      .animate-scroll::before,
-      .animate-scroll::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        width: 50px;
-        height: 100%;
-        z-index: 2;
-      }
-      .animate-scroll::before {
-        left: 0;
-        /* background: linear-gradient(to right, rgba(243, 244, 246, 1), rgba(243, 244, 246, 0)); */
-      }
-      .animate-scroll::after {
-        right: 0;
-        /* background: linear-gradient(to left, rgba(243, 244, 246, 1), rgba(243, 244, 246, 0)); */
-      }
+  }
+
+  @media (min-width: 1025px) {
+    .slider-track {
+      animation-duration: 60s;
     }
-  </style>
-  
-  <script>
-      function adjustLogoSlider() {
-        const slider = document.querySelector('.animate-scroll');
-        const slides = Array.from(document.querySelectorAll('.logo-slide')) as HTMLElement[];
-        const totalWidth = slides.reduce((sum, slide) => sum + slide.offsetWidth, 0);
-      
-        if (totalWidth < window.innerWidth && slider !== null) {
-          const repeats = Math.ceil(window.innerWidth / totalWidth) + 1;
-          slider.innerHTML = slider.innerHTML.repeat(repeats);
-        }
-      }
-    
-      window.addEventListener('load', adjustLogoSlider);
-      window.addEventListener('resize', adjustLogoSlider);
-    </script>
+  }
+
+  /* Ensure smooth performance */
+  .slider-track {
+    will-change: transform;
+  }
+
+  .logo-item {
+    min-width: 120px;
+  }
+
+  @media (min-width: 768px) {
+    .logo-item {
+      min-width: 150px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .logo-item {
+      min-width: 180px;
+    }
+  }
+</style>

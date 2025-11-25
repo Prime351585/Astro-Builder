@@ -1,0 +1,559 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+
+const certificates = [
+    {
+        id: 1,
+        image: "/Certificates/1.jpg",
+        title: "ISO Certification",
+        description: "Quality Management System Certification",
+    },
+    {
+        id: 2,
+        image: "/Certificates/2.jpg",
+        title: "Bajel Certification",
+        description: "Bajel Private Limited",
+    },
+    {
+        id: 3,
+        image: "/Certificates/3.jpg",
+        title: "Ayana Certification",
+        description: "Ayana Private Limited",
+    },
+    {
+        id: 4,
+        image: "/Certificates/4.jpg",
+        title: "Bajaj Appreciation",
+        description: "Bajaj Finance",
+    },
+];
+---
+
+<Layout title="Our Certifications - Dwizzy Infra">
+    <main class="overflow-hidden">
+        <!-- Hero Section -->
+        <section class="relative bg-black text-white py-32 lg:py-40">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-90"
+            >
+            </div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h4
+                        class="text-primary font-bold tracking-widest uppercase mb-4 text-sm fade-in"
+                    >
+                        Quality & Excellence
+                    </h4>
+                    <h1
+                        class="text-5xl lg:text-7xl font-bold mb-6 leading-tight slide-up"
+                    >
+                        Our <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-600"
+                            >Certifications</span
+                        >
+                    </h1>
+                    <div class="w-32 h-1 bg-primary mx-auto mb-8"></div>
+                    <p class="text-xl text-gray-300 leading-relaxed fade-in">
+                        Recognized for our commitment to quality, safety, and
+                        professional excellence
+                    </p>
+                </div>
+            </div>
+            <!-- Decorative Elements -->
+            <div
+                class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"
+            >
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-black mb-6">
+                        Certified Excellence in Construction
+                    </h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                        At DWIZZY INFRA, we take pride in maintaining the
+                        highest standards of quality, safety, and
+                        professionalism. Our certifications are a testament to
+                        our unwavering commitment to excellence and our
+                        dedication to delivering superior construction services.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                        <div class="text-center cert-stat">
+                            <div
+                                class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-10 h-10 text-primary"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-black mb-2">
+                                Certified
+                            </h3>
+                            <p class="text-gray-600">Industry Standards</p>
+                        </div>
+                        <div class="text-center cert-stat">
+                            <div
+                                class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-10 h-10 text-primary"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-black mb-2">
+                                Verified
+                            </h3>
+                            <p class="text-gray-600">Safety Compliance</p>
+                        </div>
+                        <div class="text-center cert-stat">
+                            <div
+                                class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-10 h-10 text-primary"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-black mb-2">
+                                Recognized
+                            </h3>
+                            <p class="text-gray-600">Quality Excellence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Gallery Section -->
+        <section class="py-20 lg:py-32 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h4
+                        class="text-primary font-bold tracking-widest uppercase mb-4 text-sm"
+                    >
+                        Our Achievements
+                    </h4>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-black mb-4">
+                        Certificates & Accreditations
+                    </h2>
+                    <div class="w-20 h-1 bg-primary mx-auto"></div>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {
+                        certificates.map((cert, index) => (
+                            <div class="cert-card group bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                                <div class="relative overflow-hidden aspect-[3/4]">
+                                    <img
+                                        src={cert.image}
+                                        alt={cert.title}
+                                        class="w-full h-full object-contain bg-gray-100 p-4 group-hover:scale-105 transition-transform duration-500 cursor-pointer"
+                                        data-cert-id={cert.id}
+                                    />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                                        <button
+                                            class="view-cert-btn px-6 py-2 bg-primary text-white font-bold uppercase tracking-wider text-sm hover:bg-orange-600 transition-colors duration-300"
+                                            data-cert-id={cert.id}
+                                            data-cert-image={cert.image}
+                                        >
+                                            View Full Size
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-primary font-bold text-lg">
+                                                {String(index + 1).padStart(
+                                                    2,
+                                                    "0",
+                                                )}
+                                            </span>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-black group-hover:text-primary transition-colors duration-300">
+                                            {cert.title}
+                                        </h3>
+                                    </div>
+                                    <p class="text-gray-600 leading-relaxed">
+                                        {cert.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal for Full Size Certificate View -->
+        <div
+            id="cert-modal"
+            class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4"
+        >
+            <button
+                id="close-modal"
+                class="absolute top-6 right-6 text-white hover:text-primary transition-colors duration-300 z-10"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="w-10 h-10"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <div class="max-w-5xl w-full max-h-[90vh] overflow-auto">
+                <img
+                    id="modal-image"
+                    src=""
+                    alt="Certificate"
+                    class="w-full h-auto rounded-lg shadow-2xl"
+                />
+            </div>
+        </div>
+
+        <!-- Why Our Certifications Matter -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h2
+                        class="text-3xl lg:text-4xl font-bold text-black mb-8 text-center"
+                    >
+                        Why Our Certifications Matter
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="flex gap-4 cert-benefit">
+                            <div
+                                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-primary"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-black mb-2">
+                                    Quality Assurance
+                                </h3>
+                                <p class="text-gray-600">
+                                    Our certifications guarantee that we follow
+                                    industry best practices and maintain the
+                                    highest quality standards in all our
+                                    projects.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 cert-benefit">
+                            <div
+                                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-primary"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-black mb-2">
+                                    Client Confidence
+                                </h3>
+                                <p class="text-gray-600">
+                                    Certifications provide our clients with the
+                                    confidence that they are working with a
+                                    professionally recognized and trusted
+                                    construction partner.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 cert-benefit">
+                            <div
+                                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-primary"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-black mb-2">
+                                    Continuous Improvement
+                                </h3>
+                                <p class="text-gray-600">
+                                    Maintaining certifications requires ongoing
+                                    training and improvement, ensuring we stay
+                                    at the forefront of industry developments.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 cert-benefit">
+                            <div
+                                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-primary"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-black mb-2">
+                                    Regulatory Compliance
+                                </h3>
+                                <p class="text-gray-600">
+                                    Our certifications demonstrate full
+                                    compliance with national and international
+                                    construction regulations and safety
+                                    standards.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-black text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+                    Work With a Certified Partner
+                </h2>
+                <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                    Choose DWIZZY INFRA for your next project and experience the
+                    difference that certified excellence makes.
+                </p>
+                <a
+                    href="/contact"
+                    class="inline-block px-10 py-4 bg-primary text-white font-bold hover:bg-orange-600 transition-colors duration-300 uppercase tracking-wider text-sm"
+                >
+                    Get In Touch
+                </a>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<script>
+    import gsap from "gsap";
+    import ScrollTrigger from "gsap/ScrollTrigger";
+
+    // Modal functionality
+    const modal = document.getElementById("cert-modal");
+    const modalImage = document.getElementById(
+        "modal-image",
+    ) as HTMLImageElement;
+    const closeModal = document.getElementById("close-modal");
+    const viewButtons = document.querySelectorAll(".view-cert-btn");
+    const certImages = document.querySelectorAll("[data-cert-id]");
+
+    // Open modal when clicking view button or image
+    viewButtons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const imageSrc = btn.getAttribute("data-cert-image");
+            if (modalImage && modal && imageSrc) {
+                modalImage.src = imageSrc;
+                modal.classList.remove("hidden");
+                modal.classList.add("flex");
+                document.body.style.overflow = "hidden";
+            }
+        });
+    });
+
+    certImages.forEach((img) => {
+        if (img.tagName === "IMG") {
+            img.addEventListener("click", () => {
+                const imageSrc = img.getAttribute("src");
+                if (modalImage && modal && imageSrc) {
+                    modalImage.src = imageSrc;
+                    modal.classList.remove("hidden");
+                    modal.classList.add("flex");
+                    document.body.style.overflow = "hidden";
+                }
+            });
+        }
+    });
+
+    // Close modal
+    closeModal?.addEventListener("click", () => {
+        if (modal) {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            document.body.style.overflow = "auto";
+        }
+    });
+
+    // Close modal when clicking outside the image
+    modal?.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            document.body.style.overflow = "auto";
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener("keydown", (e) => {
+        if (
+            e.key === "Escape" &&
+            modal &&
+            !modal.classList.contains("hidden")
+        ) {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            document.body.style.overflow = "auto";
+        }
+    });
+
+    // GSAP Animations
+    if (typeof gsap !== "undefined") {
+        try {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero animations
+            gsap.from(".fade-in", {
+                opacity: 0,
+                y: 20,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: "power2.out",
+            });
+
+            gsap.from(".slide-up", {
+                opacity: 0,
+                y: 30,
+                duration: 0.6,
+                delay: 0.2,
+                ease: "power2.out",
+            });
+
+            // Only run scroll-triggered animations on desktop
+            if (window.innerWidth >= 1024) {
+                // Stats animation
+                gsap.from(".cert-stat", {
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: ".cert-stat",
+                        start: "top 85%",
+                        toggleActions: "play none none none",
+                    },
+                });
+
+                // // Certificate cards animation
+                // gsap.from(".cert-card", {
+                //     opacity: 0,
+                //     y: 40,
+                //     duration: 0.6,
+                //     stagger: 0.15,
+                //     scrollTrigger: {
+                //         trigger: ".cert-card",
+                //         start: "top 85%",
+                //         toggleActions: "play none none none",
+                //     },
+                // });
+
+                // Benefits animation
+                gsap.from(".cert-benefit", {
+                    opacity: 0,
+                    x: -30,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: ".cert-benefit",
+                        start: "top 85%",
+                        toggleActions: "play none none none",
+                    },
+                });
+            }
+        } catch (error) {
+            console.warn("GSAP animation error:", error);
+        }
+    }
+</script>

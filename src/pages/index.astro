@@ -1,146 +1,18 @@
 ---
-import { Image } from 'astro:assets';
-import Slider from '../components/Slider.astro';
-import aboutImage from "../../public/Canva/aboutus.webp";
-import Layout from '../layouts/Layout.astro';
-import CompanySlider from '../components/CompanySlider.astro';
-import WhatWeDo from '../components/WhatWeDo.astro';
-import CoreLine from '../components/CoreLine.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/modern/Hero.astro";
+import About from "../components/modern/About.astro";
+import Services from "../components/modern/Services.astro";
+import Clients from "../components/modern/Clients.astro";
+import CTA from "../components/modern/CTA.astro";
 ---
 
-<Layout title="Dwizzy Infra" >
-	<section class=" w-full text-black m-0 bg-transparent" >
-	<!-- <Slider2/> -->
-	<Slider />
-</section>
-
-<section class="w-full text-black m-0 bg-gradient-to-br from-gray-50 to-white py-16 lg:py-24">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="flex flex-col lg:flex-row items-center justify-between gap-12">
-			<div class="w-full lg:w-1/3 mb-8 lg:mb-0 about-image">
-				<div class="relative group">
-					<div class="absolute -inset-1 bg-gradient-to-r from-primary to-orange-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
-					<Image src={aboutImage} alt="hero" class="relative h-[20rem] rounded-2xl hidden lg:block object-contain shadow-2xl" />
-				</div>
-		  </div>
-		  <div class="w-full lg:w-2/3 lg:pl-12 about-text">
-			<h2 class="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-orange-600 bg-clip-text text-transparent">Building Excellence</h2>
-			<p class="text-lg lg:text-xl leading-relaxed text-gray-700">
-			  At <strong class="text-black font-bold">DWIZZY INFRA</strong>, we take pride in being a trusted name in the construction industry, especially in the heavy civil sector. Our diverse range of services spans from building roads, railways, and metro lines to constructing bridges, handling transmission and distribution work, and laying pile foundations. With a strong commitment to quality and a tradition of excellence, we have become a reliable partner for all your infrastructure needs.
-			</p>
-		  </div>
-		</div>
-	  </div>
-	</section>
-	<div class="mt-16 mb-16 clients-section">
-		<div class="text-center mb-8">
-			<h2 class="text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-orange-600 bg-clip-text text-transparent 2xl:text-6xl">Our Clients</h2>
-			<p class="text-xl text-gray-600">Trusted by industry leaders</p>
-		</div>
-		<CompanySlider />
-	</div>
-	<!-- <img src="/Site/5.webp" alt="hero" class="w-full" /> -->
-
-
-<section class="w-full text-black bg-gradient-to-br from-gray-50 via-white to-gray-100 py-16 lg:py-20 services-section">
-	<div class="text-center mb-12">
-		<h2 class="text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-orange-600 bg-clip-text text-transparent 2xl:text-6xl">Our Services</h2>
-		<p class="text-xl text-gray-600">Comprehensive infrastructure solutions</p>
-	</div>
-	<WhatWeDo/>
-	<CoreLine/>
-	<div class="flex justify-center items-center mt-10">
-		<a href="/services" class="group relative inline-flex items-center justify-center px-8 py-4 text-xl font-bold text-white transition-all duration-300 bg-black rounded-full hover:bg-primary overflow-hidden">
-			<span class="absolute inset-0 w-0 h-full transition-all duration-300 ease-out bg-primary group-hover:w-full"></span>
-			<span class="relative">View All Services</span>
-			<svg class="relative w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-			</svg>
-		</a>
-	  </div>
-</section>
-
-
-
-<section class="w-full bg-gradient-to-br from-black via-gray-900 to-black py-20 cta-section">
-	<div class="max-w-5xl mx-auto px-4 text-center">
-		<h2 class="text-3xl lg:text-4xl font-bold mb-8 text-white leading-relaxed italic">
-			"Building a better future for everyone, Dwizzy Infra, your trusted partner in excellence and innovation."
-		</h2>
-		<a href="/contact" class="group relative inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-black transition-all duration-300 bg-white rounded-full hover:bg-primary hover:text-white overflow-hidden shadow-2xl hover:shadow-primary/50">
-			<span class="absolute inset-0 w-0 h-full transition-all duration-500 ease-out bg-gradient-to-r from-primary to-orange-600 group-hover:w-full"></span>
-			<span class="relative">Contact Us</span>
-			<svg class="relative w-6 h-6 ml-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-			</svg>
-		</a>
-	</div>
-</section>
-
-<section class="w-full text-black py-10"></section>
-<!-- <Footer/> -->
+<Layout title="Dwizzy Infra | Building Excellence">
+	<main>
+		<Hero />
+		<About />
+		<Services />
+		<Clients />
+		<CTA />
+	</main>
 </Layout>
-
-<script>
-  // Intersection Observer for fade-in animations
-  if (typeof window !== 'undefined') {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-        }
-      });
-    }, observerOptions);
-
-    // Observe elements
-    setTimeout(() => {
-      const aboutSection = document.querySelector('.about-image');
-      const aboutText = document.querySelector('.about-text');
-      const clientsSection = document.querySelector('.clients-section');
-      const servicesSection = document.querySelector('.services-section');
-      const ctaSection = document.querySelector('.cta-section');
-
-      if (aboutSection) observer.observe(aboutSection);
-      if (aboutText) observer.observe(aboutText);
-      if (clientsSection) observer.observe(clientsSection);
-      if (servicesSection) observer.observe(servicesSection);
-      if (ctaSection) observer.observe(ctaSection);
-    }, 100);
-  }
-</script>
-
-<style>
-  .about-image,
-  .about-text,
-  .clients-section,
-  .services-section,
-  .cta-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  }
-
-  .about-image.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.2s;
-  }
-
-  .about-text.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.4s;
-  }
-
-  .clients-section.animate-in,
-  .services-section.animate-in,
-  .cta-section.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>

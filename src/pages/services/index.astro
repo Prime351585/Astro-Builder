@@ -1,0 +1,392 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Our Services | Dwizzy Infra">
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-black text-white py-32 overflow-hidden">
+            <div
+                class="absolute inset-0 bg-[url('/SliderImages/2.webp')] bg-cover bg-center opacity-30"
+            >
+            </div>
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/70"
+            >
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Our <span class="text-primary">Services</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+                    Comprehensive infrastructure solutions for your project
+                    needs
+                </p>
+            </div>
+        </section>
+
+        <!-- Featured Services -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h4
+                        class="text-primary font-bold tracking-widest uppercase mb-4 text-sm"
+                    >
+                        Featured Services
+                    </h4>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-black mb-4">
+                        Specialized Solutions
+                    </h2>
+                    <div class="w-20 h-1 bg-primary mx-auto"></div>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12"
+                >
+                    <!-- Power Transmission Card -->
+                    <div
+                        class="group bg-gradient-to-br from-gray-50 to-white p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-b-4 border-primary"
+                    >
+                        <div class="flex items-center gap-4 mb-6">
+                            <div
+                                class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-3xl font-bold text-black group-hover:text-primary transition-colors duration-300"
+                            >
+                                Power Transmission
+                            </h3>
+                        </div>
+                        <p class="text-gray-700 mb-6 leading-relaxed">
+                            Complete EPC solutions for transmission line
+                            foundations, monopole erection, lattice tower
+                            installation, and HT/LT stringing across 66kV,
+                            132kV, 220kV, and 400kV voltage levels.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <span class="text-primary">●</span> Transmission
+                                line foundations
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <span class="text-primary">●</span> Monopole & lattice
+                                tower erection
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <span class="text-primary">●</span> Heavy lifting
+                                with telescopic cranes
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <span class="text-primary">●</span> HT/LT stringing
+                                work
+                            </li>
+                        </ul>
+                        <a
+                            href="/services/power-transmission"
+                            class="inline-block px-8 py-4 bg-black text-white font-bold hover:bg-primary transition-colors duration-300 uppercase tracking-wider text-sm group-hover:translate-x-2 transform transition-transform"
+                        >
+                            Learn More →
+                        </a>
+                    </div>
+
+                    <!-- Pile Foundation Card -->
+                    <div
+                        class="group bg-gradient-to-br from-gray-50 to-white p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-b-4 border-primary"
+                    >
+                        <div class="flex items-center gap-4 mb-6">
+                            <div
+                                class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-8 w-8"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-3xl font-bold text-black group-hover:text-primary transition-colors duration-300"
+                            >
+                                Pile Foundation
+                            </h3>
+                        </div>
+                        <p class="text-gray-700 mb-6 leading-relaxed">
+                            High-performance pile foundation solutions for
+                            large-scale infrastructure and power transmission
+                            projects. From 600mm to 4500mm diameter piles with
+                            advanced machinery.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <span class="text-primary">●</span> Large-diameter
+                                pile boring (2200mm-4500mm)
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <span class="text-primary">●</span> RIG, TMR, WINCH
+                                & manual pile systems
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <span class="text-primary">●</span> Metro, bridge
+                                & monopole foundations
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <span class="text-primary">●</span> Material supply
+                                & execution
+                            </li>
+                        </ul>
+                        <a
+                            href="/services/pile-foundation"
+                            class="inline-block px-8 py-4 bg-black text-white font-bold hover:bg-primary transition-colors duration-300 uppercase tracking-wider text-sm group-hover:translate-x-2 transform transition-transform"
+                        >
+                            Learn More →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Services -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h4
+                        class="text-primary font-bold tracking-widest uppercase mb-4 text-sm"
+                    >
+                        Complete Solutions
+                    </h4>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-black mb-4">
+                        What We Do
+                    </h2>
+                    <div class="w-20 h-1 bg-primary mx-auto"></div>
+                </div>
+
+                <div class="space-y-16 max-w-6xl mx-auto">
+                    <!-- Service 1: Power Transmission Erection -->
+                    <div class="group">
+                        <div
+                            class="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                        >
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-2/5 relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent z-10"
+                                    >
+                                    </div>
+                                    <Image
+                                        src="/Canva/PowerErection.webp"
+                                        alt="Power Transmission Erection"
+                                        width={500}
+                                        height={200}
+                                        class="w-full h-[550px] object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                    />
+                                </div>
+                                <div class="md:w-3/5 p-8">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <span
+                                            class="bg-primary text-white px-4 py-1 text-sm font-bold uppercase tracking-wider"
+                                            >01</span
+                                        >
+                                        <h3
+                                            class="text-3xl font-bold text-black group-hover:text-primary transition-colors duration-300"
+                                        >
+                                            Power Transmission Erection
+                                        </h3>
+                                    </div>
+                                    <p class="text-gray-700 leading-relaxed">
+                                        Dwizzy Infra specializes in complex
+                                        power transmission erection projects,
+                                        including the heavy lifting and
+                                        installation of monopoles across
+                                        multiple circuits with voltage levels of
+                                        66KV, 132KVA, 220KVA, and 400KVA. Using
+                                        state-of-the-art telescopic cranes, our
+                                        team expertly handles the challenging
+                                        task of erecting these structures at
+                                        heights of up to 75 meters. With a focus
+                                        on precision and safety, Dwizzy Infra
+                                        ensures that each project is completed
+                                        efficiently, meeting the highest
+                                        industry standards.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 2: Pile Foundation Work -->
+                    <div class="group">
+                        <div
+                            class="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                        >
+                            <div class="flex flex-col md:flex-row-reverse">
+                                <div class="md:w-2/5 relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-l from-primary/20 to-transparent z-10"
+                                    >
+                                    </div>
+                                    <Image
+                                        src="/Canva/PileFoundation.webp"
+                                        alt="Pile Foundation Work"
+                                        width={500}
+                                        height={200}
+                                        class="w-full h-[550px] object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                    />
+                                </div>
+                                <div class="md:w-3/5 p-8">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <span
+                                            class="bg-primary text-white px-4 py-1 text-sm font-bold uppercase tracking-wider"
+                                            >02</span
+                                        >
+                                        <h3
+                                            class="text-3xl font-bold text-black group-hover:text-primary transition-colors duration-300"
+                                        >
+                                            Pile Foundation Work
+                                        </h3>
+                                    </div>
+                                    <p class="text-gray-700 leading-relaxed">
+                                        At Dwizzy Infra, we excel in delivering
+                                        comprehensive pile foundation services
+                                        for high-capacity power transmission
+                                        projects. Recently, we undertook the
+                                        monopole foundation construction for 220
+                                        KVA, 132 KVA, and 400 KVA voltage
+                                        capacities for esteemed clients like
+                                        Torrent Power, Bajel Projects, and Bajaj
+                                        Electricals Limited. Our scope of work
+                                        included the construction of robust 220
+                                        KVA monopole tower foundations, along
+                                        with the supply of high-quality
+                                        construction materials. The foundation
+                                        boring was executed with precision,
+                                        adhering to specifications with
+                                        diameters ranging from 2200MM to 4500MM,
+                                        ensuring stability and durability for
+                                        these critical infrastructure projects.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: Crafting Special Cages -->
+                    <div class="group">
+                        <div
+                            class="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                        >
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-2/5 relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent z-10"
+                                    >
+                                    </div>
+                                    <Image
+                                        src="/Canva/SpecialCage.webp"
+                                        alt="Special Cage Construction"
+                                        width={500}
+                                        height={200}
+                                        class="w-full h-[550px] object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                    />
+                                </div>
+                                <div class="md:w-3/5 p-8">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <span
+                                            class="bg-primary text-white px-4 py-1 text-sm font-bold uppercase tracking-wider"
+                                            >03</span
+                                        >
+                                        <h3
+                                            class="text-3xl font-bold text-black group-hover:text-primary transition-colors duration-300"
+                                        >
+                                            Crafting Special Cages
+                                        </h3>
+                                    </div>
+                                    <p class="text-gray-700 leading-relaxed">
+                                        Renowned for our exceptional
+                                        craftsmanship, Dwizzy Infra specializes
+                                        in fabricating robust special cages
+                                        designed specifically for construction
+                                        projects. Our cages are meticulously
+                                        crafted to ensure unmatched durability
+                                        and compliance with the highest safety
+                                        protocols. Each cage is tailored to meet
+                                        the unique demands of the project,
+                                        providing reliable support and enhancing
+                                        structural integrity. With a commitment
+                                        to quality and precision, we deliver
+                                        solutions that not only meet but exceed
+                                        industry standards, making us a trusted
+                                        partner in the successful execution of
+                                        complex construction endeavors.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="relative py-24 bg-black text-white overflow-hidden">
+            <div
+                class="absolute inset-0 bg-[url('/SliderImages/1.webp')] bg-cover bg-center opacity-20 bg-fixed"
+            >
+            </div>
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/70"
+            >
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <h2
+                    class="text-3xl md:text-5xl font-bold mb-8 leading-tight max-w-4xl mx-auto"
+                >
+                    Ready to Build Your Next Project?
+                </h2>
+                <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                    Partner with Dwizzy Infra for reliable, precision-engineered
+                    infrastructure solutions.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a
+                        href="/contact"
+                        class="px-10 py-5 bg-primary text-white font-bold rounded-none hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-wider shadow-lg hover:shadow-primary/50 transform hover:-translate-y-1"
+                    >
+                        Get a Quote
+                    </a>
+                    <a
+                        href="/projects"
+                        class="px-10 py-5 border-2 border-white text-white font-bold rounded-none hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-wider hover:shadow-lg transform hover:-translate-y-1"
+                    >
+                        View Projects
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

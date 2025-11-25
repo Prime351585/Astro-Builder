@@ -1,0 +1,181 @@
+---
+const partners = [
+    { name: "Bajaj", logo: "/Partners/Bajaj.webp" },
+    { name: "Bajel", logo: "/Partners/bajel.webp" },
+    { name: "Afcons", logo: "/Partners/Afcons.webp" },
+    { name: "Ayana", logo: "/Partners/Ayana.png" },
+    { name: "Hgiel", logo: "/Partners/Hgiel.webp" },
+    { name: "HP", logo: "/Partners/HP.webp" },
+    { name: "L&T", logo: "/Partners/LT.webp" },
+    { name: "NCC", logo: "/Partners/NCC.webp" },
+    { name: "Rajshyama", logo: "/Partners/Rajshyama.webp" },
+    { name: "NHIT", logo: "/Partners/NHIT.webp" },
+    { name: "Kalpatru", logo: "/Partners/Kalpatru.webp" },
+    { name: "Ganga", logo: "/Partners/Ganga.webp" },
+    { name: "PECPL", logo: "/Partners/PECPL.webp" },
+];
+---
+
+<section class="py-16 bg-white border-t border-gray-100 overflow-hidden">
+    <div class="container mx-auto px-4 mb-10 text-center">
+        <p
+            class="text-gray-500 uppercase tracking-widest text-sm font-semibold"
+        >
+            Trusted by Industry Leaders
+        </p>
+    </div>
+
+    <div class="relative w-full">
+        <!-- Fade edges -->
+        <div
+            class="absolute left-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"
+        >
+        </div>
+        <div
+            class="absolute right-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"
+        >
+        </div>
+
+        <!-- Slider container -->
+        <div class="slider-wrapper">
+            <div class="slider-track">
+                <!-- First set of logos -->
+                {
+                    partners.map((partner) => (
+                        <div class="logo-item">
+                            <img
+                                src={partner.logo}
+                                alt={partner.name}
+                                class="logo-image"
+                                loading="lazy"
+                            />
+                        </div>
+                    ))
+                }
+                <!-- Duplicate set for seamless loop -->
+                {
+                    partners.map((partner) => (
+                        <div class="logo-item">
+                            <img
+                                src={partner.logo}
+                                alt={partner.name}
+                                class="logo-image"
+                                loading="lazy"
+                            />
+                        </div>
+                    ))
+                }
+                <!-- Third set for extra coverage -->
+                {
+                    partners.map((partner) => (
+                        <div class="logo-item">
+                            <img
+                                src={partner.logo}
+                                alt={partner.name}
+                                class="logo-image"
+                                loading="lazy"
+                            />
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .slider-wrapper {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .slider-track {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        width: max-content;
+        animation: scroll 50s linear infinite;
+    }
+
+    .slider-track:hover {
+        animation-play-state: paused;
+    }
+
+    .logo-item {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 100px;
+        padding: 0 1rem;
+        transition: transform 0.3s ease;
+    }
+
+    .logo-item:hover {
+        transform: scale(1.1);
+    }
+
+    .logo-image {
+        height: 3rem;
+        width: auto;
+        max-width: 150px;
+        object-fit: contain;
+        filter: grayscale(100%);
+        opacity: 0.6;
+        transition: all 0.3s ease;
+    }
+
+    .logo-item:hover .logo-image {
+        filter: grayscale(0%);
+        opacity: 1;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-100% / 3));
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (min-width: 768px) {
+        .slider-track {
+            gap: 3rem;
+            animation-duration: 60s;
+        }
+
+        .logo-item {
+            min-width: 120px;
+            padding: 0 1.5rem;
+        }
+
+        .logo-image {
+            height: 4rem;
+            max-width: 180px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .slider-track {
+            gap: 4rem;
+            animation-duration: 70s;
+        }
+
+        .logo-item {
+            min-width: 150px;
+            padding: 0 2rem;
+        }
+
+        .logo-image {
+            height: 4.5rem;
+            max-width: 200px;
+        }
+    }
+
+    /* Performance optimization */
+    .slider-track {
+        will-change: transform;
+    }
+</style>

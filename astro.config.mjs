@@ -7,11 +7,8 @@ import cloudflare from "@astrojs/cloudflare";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), sitemap()],
-  output: "server",
+  // output: "server",
   adapter: cloudflare(),
-  site:"https://dwizzyinfra.com/",
-  redirects:{
-    '/about':'/',
-  }
+  site:"https://dwizzyinfra.com/"
   
 });

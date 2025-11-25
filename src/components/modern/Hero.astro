@@ -1,0 +1,276 @@
+---
+const images = [
+    {
+        src: "/SliderImages/1.webp",
+        alt: "Monopole Erection",
+        title: "Monopole Erection",
+        subtitle: "Building the backbone of power transmission.",
+    },
+    {
+        src: "/SliderImages/2.webp",
+        alt: "Special Cage Construction",
+        title: "Special Cage Construction",
+        subtitle: "Precision engineering for complex structures.",
+    },
+    {
+        src: "/SliderImages/3.webp",
+        alt: "Pile Foundation",
+        title: "Pile Foundation",
+        subtitle: "Strong foundations for a stable future.",
+    },
+];
+---
+
+<section
+    class="relative w-full h-screen overflow-hidden bg-black"
+    id="hero-slider"
+>
+    <div class="absolute inset-0 z-10 bg-black/40"></div>
+    <!-- Overlay -->
+
+    <div class="relative w-full h-full" id="slides-container">
+        {
+            images.map((image, index) => (
+                <div
+                    class={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out slide ${index === 0 ? "opacity-100 z-1" : "opacity-0 z-0"}`}
+                    data-index={index}
+                >
+                    <img
+                        src={image.src}
+                        alt={image.alt}
+                        class="w-full h-full object-cover"
+                    />
+                    <div class="absolute inset-0 flex items-center justify-center z-20">
+                        <div class="text-center text-white px-4 max-w-5xl mx-auto">
+                            <h2 class="text-sm md:text-lg font-bold tracking-[0.2em] uppercase text-primary mb-4 opacity-0 translate-y-10 slide-subtitle">
+                                Dwizzy Infra
+                            </h2>
+                            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight opacity-0 translate-y-10 slide-title">
+                                {image.title}
+                            </h1>
+                            <p class="text-lg md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto opacity-0 translate-y-10 slide-desc">
+                                {image.subtitle}
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center opacity-0 translate-y-10 slide-cta">
+                                <a
+                                    href="/projects"
+                                    class="px-8 py-4 bg-primary text-white font-bold rounded-none hover:bg-white hover:text-black transition-colors duration-300 uppercase tracking-wider"
+                                >
+                                    View Projects
+                                </a>
+                                <a
+                                    href="/contact"
+                                    class="px-8 py-4 border-2 border-white text-white font-bold rounded-none hover:bg-white hover:text-black transition-colors duration-300 uppercase tracking-wider"
+                                >
+                                    Contact Us
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+
+    <!-- Navigation -->
+    <div
+        class="absolute bottom-10 left-0 right-0 z-30 flex justify-center gap-4"
+    >
+        {
+            images.map((_, index) => (
+                <button
+                    class={`w-3 h-3 rounded-full transition-all duration-300 border border-white/50 hover:bg-primary hover:border-primary dot-nav ${index === 0 ? "bg-primary border-primary scale-125" : "bg-transparent"}`}
+                    data-index={index}
+                    aria-label={`Go to slide ${index + 1}`}
+                />
+            ))
+        }
+    </div>
+
+    <button
+        id="prev-slide"
+        class="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-4 text-white/50 hover:text-white transition-colors hidden md:block"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-10 h-10"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+        </svg>
+    </button>
+    <button
+        id="next-slide"
+        class="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-4 text-white/50 hover:text-white transition-colors hidden md:block"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-10 h-10"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+        </svg>
+    </button>
+</section>
+
+<script>
+    import gsap from "gsap";
+
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot-nav");
+    const prevBtn = document.getElementById("prev-slide");
+    const nextBtn = document.getElementById("next-slide");
+    let currentIndex = 0;
+    let isAnimating = false;
+    let autoPlayTimer: any;
+
+    function animateSlide(index: number) {
+        const slide = slides[index];
+        const subtitle = slide.querySelector(".slide-subtitle");
+        const title = slide.querySelector(".slide-title");
+        const desc = slide.querySelector(".slide-desc");
+        const cta = slide.querySelector(".slide-cta");
+
+        const tl = gsap.timeline();
+
+        tl.to(subtitle, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" })
+            .to(
+                title,
+                { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
+                "-=0.15",
+            )
+            .to(
+                desc,
+                { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
+                "-=0.2",
+            )
+            .to(
+                cta,
+                { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
+                "-=0.2",
+            );
+    }
+
+    function resetSlide(index: number) {
+        const slide = slides[index];
+        const elements = slide.querySelectorAll(
+            ".slide-subtitle, .slide-title, .slide-desc, .slide-cta",
+        );
+        gsap.set(elements, { opacity: 0, y: 30 });
+    }
+
+    function goToSlide(index: number) {
+        if (isAnimating || index === currentIndex) return;
+        isAnimating = true;
+
+        const currentSlide = slides[currentIndex];
+        const nextSlide = slides[index];
+
+        // Update dots
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.add("bg-primary", "border-primary", "scale-125");
+                dot.classList.remove("bg-transparent");
+            } else {
+                dot.classList.remove(
+                    "bg-primary",
+                    "border-primary",
+                    "scale-125",
+                );
+                dot.classList.add("bg-transparent");
+            }
+        });
+
+        // Reset next slide elements before starting
+        resetSlide(index);
+
+        // Prepare next slide
+        nextSlide.classList.remove("z-0");
+        nextSlide.classList.add("z-10");
+
+        // Create ultra-smooth synchronized timeline
+        const tl = gsap.timeline({
+            onComplete: () => {
+                currentIndex = index;
+                isAnimating = false;
+                currentSlide.classList.remove("z-10");
+                currentSlide.classList.add("z-0");
+                resetSlide(currentIndex);
+            },
+        });
+
+        // Ultra-fast crossfade with complete overlap
+        tl.to(currentSlide, {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power1.inOut",
+        })
+            .to(
+                nextSlide,
+                {
+                    opacity: 1,
+                    duration: 0.3,
+                    ease: "power1.inOut",
+                },
+                "-=0.3", // Complete overlap for instant transition
+            )
+            .add(() => {
+                animateSlide(index);
+            }, "-=0.28");
+    }
+
+    function nextSlide() {
+        const nextIndex = (currentIndex + 1) % slides.length;
+        goToSlide(nextIndex);
+    }
+
+    function prevSlide() {
+        const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+        goToSlide(prevIndex);
+    }
+
+    // Initial animation
+    resetSlide(0);
+    setTimeout(() => animateSlide(0), 100);
+
+    // Event Listeners
+    if (nextBtn)
+        nextBtn.addEventListener("click", () => {
+            clearInterval(autoPlayTimer);
+            nextSlide();
+            startAutoPlay();
+        });
+
+    if (prevBtn)
+        prevBtn.addEventListener("click", () => {
+            clearInterval(autoPlayTimer);
+            prevSlide();
+            startAutoPlay();
+        });
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            clearInterval(autoPlayTimer);
+            goToSlide(index);
+            startAutoPlay();
+        });
+    });
+
+    function startAutoPlay() {
+        autoPlayTimer = setInterval(nextSlide, 5000);
+    }
+
+    startAutoPlay();
+</script>
