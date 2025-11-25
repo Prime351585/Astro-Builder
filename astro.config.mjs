@@ -9,6 +9,9 @@ export default defineConfig({
   integrations: [tailwind(), sitemap()],
   // output: "server",
   adapter: cloudflare(),
-  site:"https://dwizzyinfra.com/"
+  site:"https://dwizzyinfra.com/",
+  redirects:{
+    "/about": "/"
+  }
   
 });

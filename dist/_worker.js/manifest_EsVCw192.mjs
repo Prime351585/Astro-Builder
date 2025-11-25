@@ -1,0 +1,100 @@
+globalThis.process ??= {}; globalThis.process.env ??= {};
+import { p as decodeKey } from './chunks/astro/server_CdbN314I.mjs';
+import './chunks/astro-designed-error-pages_BLQ8Zswf.mjs';
+import { N as NOOP_MIDDLEWARE_FN } from './chunks/noop-middleware_D0D3lzj7.mjs';
+
+function sanitizeParams(params) {
+  return Object.fromEntries(
+    Object.entries(params).map(([key, value]) => {
+      if (typeof value === "string") {
+        return [key, value.normalize().replace(/#/g, "%23").replace(/\?/g, "%3F")];
+      }
+      return [key, value];
+    })
+  );
+}
+function getParameter(part, params) {
+  if (part.spread) {
+    return params[part.content.slice(3)] || "";
+  }
+  if (part.dynamic) {
+    if (!params[part.content]) {
+      throw new TypeError(`Missing parameter: ${part.content}`);
+    }
+    return params[part.content];
+  }
+  return part.content.normalize().replace(/\?/g, "%3F").replace(/#/g, "%23").replace(/%5B/g, "[").replace(/%5D/g, "]");
+}
+function getSegment(segment, params) {
+  const segmentPath = segment.map((part) => getParameter(part, params)).join("");
+  return segmentPath ? "/" + segmentPath : "";
+}
+function getRouteGenerator(segments, addTrailingSlash) {
+  return (params) => {
+    const sanitizedParams = sanitizeParams(params);
+    let trailing = "";
+    if (addTrailingSlash === "always" && segments.length) {
+      trailing = "/";
+    }
+    const path = segments.map((segment) => getSegment(segment, sanitizedParams)).join("") + trailing;
+    return path || "/";
+  };
+}
+
+function deserializeRouteData(rawRouteData) {
+  return {
+    route: rawRouteData.route,
+    type: rawRouteData.type,
+    pattern: new RegExp(rawRouteData.pattern),
+    params: rawRouteData.params,
+    component: rawRouteData.component,
+    generate: getRouteGenerator(rawRouteData.segments, rawRouteData._meta.trailingSlash),
+    pathname: rawRouteData.pathname || void 0,
+    segments: rawRouteData.segments,
+    prerender: rawRouteData.prerender,
+    redirect: rawRouteData.redirect,
+    redirectRoute: rawRouteData.redirectRoute ? deserializeRouteData(rawRouteData.redirectRoute) : void 0,
+    fallbackRoutes: rawRouteData.fallbackRoutes.map((fallback) => {
+      return deserializeRouteData(fallback);
+    }),
+    isIndex: rawRouteData.isIndex,
+    origin: rawRouteData.origin
+  };
+}
+
+function deserializeManifest(serializedManifest) {
+  const routes = [];
+  for (const serializedRoute of serializedManifest.routes) {
+    routes.push({
+      ...serializedRoute,
+      routeData: deserializeRouteData(serializedRoute.routeData)
+    });
+    const route = serializedRoute;
+    route.routeData = deserializeRouteData(serializedRoute.routeData);
+  }
+  const assets = new Set(serializedManifest.assets);
+  const componentMetadata = new Map(serializedManifest.componentMetadata);
+  const inlinedScripts = new Map(serializedManifest.inlinedScripts);
+  const clientDirectives = new Map(serializedManifest.clientDirectives);
+  const serverIslandNameMap = new Map(serializedManifest.serverIslandNameMap);
+  const key = decodeKey(serializedManifest.key);
+  return {
+    // in case user middleware exists, this no-op middleware will be reassigned (see plugin-ssr.ts)
+    middleware() {
+      return { onRequest: NOOP_MIDDLEWARE_FN };
+    },
+    ...serializedManifest,
+    assets,
+    componentMetadata,
+    inlinedScripts,
+    clientDirectives,
+    routes,
+    serverIslandNameMap,
+    key
+  };
+}
+
+const manifest = deserializeManifest({"hrefRoot":"file:///C:/Users/HARSH/OneDrive/Desktop/Dwizzy%20Infra/Astro-Builder/","cacheDir":"file:///C:/Users/HARSH/OneDrive/Desktop/Dwizzy%20Infra/Astro-Builder/node_modules/.astro/","outDir":"file:///C:/Users/HARSH/OneDrive/Desktop/Dwizzy%20Infra/Astro-Builder/dist/","srcDir":"file:///C:/Users/HARSH/OneDrive/Desktop/Dwizzy%20Infra/Astro-Builder/src/","publicDir":"file:///C:/Users/HARSH/OneDrive/Desktop/Dwizzy%20Infra/Astro-Builder/public/","buildClientDir":"file:///C:/Users/HARSH/OneDrive/Desktop/Dwizzy%20Infra/Astro-Builder/dist/","buildServerDir":"file:///C:/Users/HARSH/OneDrive/Desktop/Dwizzy%20Infra/Astro-Builder/dist/_worker.js/","adapterName":"@astrojs/cloudflare","routes":[{"file":"","links":[],"scripts":[],"styles":[],"routeData":{"type":"page","component":"_server-islands.astro","params":["name"],"segments":[[{"content":"_server-islands","dynamic":false,"spread":false}],[{"content":"name","dynamic":true,"spread":false}]],"pattern":"^\\/_server-islands\\/([^/]+?)\\/?$","prerender":false,"isIndex":false,"fallbackRoutes":[],"route":"/_server-islands/[name]","origin":"internal","_meta":{"trailingSlash":"ignore"}}},{"file":"about/index.html","links":[],"scripts":[],"styles":[],"routeData":{"route":"/about","isIndex":false,"type":"page","pattern":"^\\/about\\/?$","segments":[[{"content":"about","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/about.astro","pathname":"/about","prerender":true,"fallbackRoutes":[],"distURL":[],"origin":"project","_meta":{"trailingSlash":"ignore"}}},{"file":"certifications/index.html","links":[],"scripts":[],"styles":[],"routeData":{"route":"/certifications","isIndex":false,"type":"page","pattern":"^\\/certifications\\/?$","segments":[[{"content":"certifications","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/certifications.astro","pathname":"/certifications","prerender":true,"fallbackRoutes":[],"distURL":[],"origin":"project","_meta":{"trailingSlash":"ignore"}}},{"file":"contact/index.html","links":[],"scripts":[],"styles":[],"routeData":{"route":"/contact","isIndex":false,"type":"page","pattern":"^\\/contact\\/?$","segments":[[{"content":"contact","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/contact.astro","pathname":"/contact","prerender":true,"fallbackRoutes":[],"distURL":[],"origin":"project","_meta":{"trailingSlash":"ignore"}}},{"file":"privacyPolicy/index.html","links":[],"scripts":[],"styles":[],"routeData":{"route":"/privacypolicy","isIndex":false,"type":"page","pattern":"^\\/privacyPolicy\\/?$","segments":[[{"content":"privacyPolicy","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/privacyPolicy.astro","pathname":"/privacyPolicy","prerender":true,"fallbackRoutes":[],"distURL":[],"origin":"project","_meta":{"trailingSlash":"ignore"}}},{"file":"projects/index.html","links":[],"scripts":[],"styles":[],"routeData":{"route":"/projects","isIndex":false,"type":"page","pattern":"^\\/projects\\/?$","segments":[[{"content":"projects","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/projects.astro","pathname":"/projects","prerender":true,"fallbackRoutes":[],"distURL":[],"origin":"project","_meta":{"trailingSlash":"ignore"}}},{"file":"services/pile-foundation/index.html","links":[],"scripts":[],"styles":[],"routeData":{"route":"/services/pile-foundation","isIndex":false,"type":"page","pattern":"^\\/services\\/pile-foundation\\/?$","segments":[[{"content":"services","dynamic":false,"spread":false}],[{"content":"pile-foundation","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/services/pile-foundation.astro","pathname":"/services/pile-foundation","prerender":true,"fallbackRoutes":[],"distURL":[],"origin":"project","_meta":{"trailingSlash":"ignore"}}},{"file":"services/power-transmission/index.html","links":[],"scripts":[],"styles":[],"routeData":{"route":"/services/power-transmission","isIndex":false,"type":"page","pattern":"^\\/services\\/power-transmission\\/?$","segments":[[{"content":"services","dynamic":false,"spread":false}],[{"content":"power-transmission","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/services/power-transmission.astro","pathname":"/services/power-transmission","prerender":true,"fallbackRoutes":[],"distURL":[],"origin":"project","_meta":{"trailingSlash":"ignore"}}},{"file":"services/index.html","links":[],"scripts":[],"styles":[],"routeData":{"route":"/services","isIndex":true,"type":"page","pattern":"^\\/services\\/?$","segments":[[{"content":"services","dynamic":false,"spread":false}]],"params":[],"component":"src/pages/services/index.astro","pathname":"/services","prerender":true,"fallbackRoutes":[],"distURL":[],"origin":"project","_meta":{"trailingSlash":"ignore"}}},{"file":"index.html","links":[],"scripts":[],"styles":[],"routeData":{"route":"/","isIndex":true,"type":"page","pattern":"^\\/$","segments":[],"params":[],"component":"src/pages/index.astro","pathname":"/","prerender":true,"fallbackRoutes":[],"distURL":[],"origin":"project","_meta":{"trailingSlash":"ignore"}}}],"site":"https://dwizzyinfra.com/","base":"/","trailingSlash":"ignore","compressHTML":true,"componentMetadata":[["C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/pages/about.astro",{"propagation":"none","containsHead":true}],["C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/pages/certifications.astro",{"propagation":"none","containsHead":true}],["C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/pages/contact.astro",{"propagation":"none","containsHead":true}],["C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/pages/index.astro",{"propagation":"none","containsHead":true}],["C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/pages/privacyPolicy.astro",{"propagation":"none","containsHead":true}],["C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/pages/projects.astro",{"propagation":"none","containsHead":true}],["C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/pages/services/index.astro",{"propagation":"none","containsHead":true}],["C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/pages/services/pile-foundation.astro",{"propagation":"none","containsHead":true}],["C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/pages/services/power-transmission.astro",{"propagation":"none","containsHead":true}]],"renderers":[],"clientDirectives":[["idle","(()=>{var l=(n,t)=>{let i=async()=>{await(await n())()},e=typeof t.value==\"object\"?t.value:void 0,s={timeout:e==null?void 0:e.timeout};\"requestIdleCallback\"in window?window.requestIdleCallback(i,s):setTimeout(i,s.timeout||200)};(self.Astro||(self.Astro={})).idle=l;window.dispatchEvent(new Event(\"astro:idle\"));})();"],["load","(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event(\"astro:load\"));})();"],["media","(()=>{var n=(a,t)=>{let i=async()=>{await(await a())()};if(t.value){let e=matchMedia(t.value);e.matches?i():e.addEventListener(\"change\",i,{once:!0})}};(self.Astro||(self.Astro={})).media=n;window.dispatchEvent(new Event(\"astro:media\"));})();"],["only","(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).only=e;window.dispatchEvent(new Event(\"astro:only\"));})();"],["visible","(()=>{var a=(s,i,o)=>{let r=async()=>{await(await s())()},t=typeof i.value==\"object\"?i.value:void 0,c={rootMargin:t==null?void 0:t.rootMargin},n=new IntersectionObserver(e=>{for(let l of e)if(l.isIntersecting){n.disconnect(),r();break}},c);for(let e of o.children)n.observe(e)};(self.Astro||(self.Astro={})).visible=a;window.dispatchEvent(new Event(\"astro:visible\"));})();"]],"entryModules":{"\u0000astro-internal:middleware":"_astro-internal_middleware.mjs","\u0000noop-actions":"_noop-actions.mjs","\u0000@astro-page:src/pages/about@_@astro":"pages/about.astro.mjs","\u0000@astro-page:src/pages/certifications@_@astro":"pages/certifications.astro.mjs","\u0000@astro-page:src/pages/contact@_@astro":"pages/contact.astro.mjs","\u0000@astro-page:src/pages/privacyPolicy@_@astro":"pages/privacypolicy.astro.mjs","\u0000@astro-page:src/pages/projects@_@astro":"pages/projects.astro.mjs","\u0000@astro-page:src/pages/services/pile-foundation@_@astro":"pages/services/pile-foundation.astro.mjs","\u0000@astro-page:src/pages/services/power-transmission@_@astro":"pages/services/power-transmission.astro.mjs","\u0000@astro-page:src/pages/services/index@_@astro":"pages/services.astro.mjs","\u0000@astro-page:src/pages/index@_@astro":"pages/index.astro.mjs","\u0000@astrojs-ssr-virtual-entry":"index.js","\u0000@astro-renderers":"renderers.mjs","\u0000@astrojs-ssr-adapter":"_@astrojs-ssr-adapter.mjs","\u0000@astrojs-manifest":"manifest_EsVCw192.mjs","C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/node_modules/unstorage/drivers/cloudflare-kv-binding.mjs":"chunks/cloudflare-kv-binding_DMly_2Gl.mjs","C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/node_modules/astro/dist/assets/services/sharp.js":"chunks/sharp_dnBjNDWA.mjs","C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/pages/contact.astro?astro&type=script&index=0&lang.ts":"_astro/contact.astro_astro_type_script_index_0_lang.BXBekkCt.js","C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/pages/about.astro?astro&type=script&index=0&lang.ts":"_astro/about.astro_astro_type_script_index_0_lang.DS3FaPRm.js","C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/pages/certifications.astro?astro&type=script&index=0&lang.ts":"_astro/certifications.astro_astro_type_script_index_0_lang.eY5JYotc.js","C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/components/modern/Hero.astro?astro&type=script&index=0&lang.ts":"_astro/Hero.astro_astro_type_script_index_0_lang.KlT0yzWu.js","C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/components/FAQ.astro?astro&type=script&index=0&lang.ts":"_astro/FAQ.astro_astro_type_script_index_0_lang.Cc5I_R5s.js","C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/components/modern/Navbar.astro?astro&type=script&index=0&lang.ts":"_astro/Navbar.astro_astro_type_script_index_0_lang.2WMapTLR.js","astro:scripts/before-hydration.js":""},"inlinedScripts":[["C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/pages/contact.astro?astro&type=script&index=0&lang.ts","document.getElementById(\"contactForm\")?.addEventListener(\"submit\",function(t){t.preventDefault();const e=document.getElementById(\"name\").value,n=document.getElementById(\"email\").value,o=document.getElementById(\"message\").value,m=`Contact Form Submission from ${e}`,a=`Name: ${e}%0D%0AEmail: ${n}%0D%0A%0D%0AMessage:%0D%0A${o}`,c=`mailto:info@dwizzyinfra.com?subject=${encodeURIComponent(m)}&body=${a}`;window.location.href=c});"],["C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/components/FAQ.astro?astro&type=script&index=0&lang.ts","document.addEventListener(\"DOMContentLoaded\",o=>{document.querySelectorAll('[id^=\"faq-button-\"]').forEach(e=>{e.addEventListener(\"click\",()=>{const t=e.id.split(\"-\")[2],n=document.getElementById(`faq-answer-${t}`),s=e.querySelector(\"svg\");n?.classList.toggle(\"hidden\"),s?.classList.toggle(\"rotate-180\")})})});"],["C:/Users/HARSH/OneDrive/Desktop/Dwizzy Infra/Astro-Builder/src/components/modern/Navbar.astro?astro&type=script&index=0&lang.ts","document.getElementById(\"main-header\");const a=document.getElementById(\"mobile-menu-btn\"),i=document.getElementById(\"close-menu-btn\"),r=document.getElementById(\"mobile-menu\"),c=document.querySelectorAll(\".mobile-link\"),t=document.querySelector(\".topbar\"),e=document.querySelector(\"#navbar\");let s=0;const l=window.innerWidth<768;t&&!l&&(s=t.offsetHeight);window.addEventListener(\"scroll\",()=>{const n=window.scrollY;!l&&t&&e&&s>0&&(n>s?(t.style.transform=\"translateY(-100%)\",t.style.transition=\"transform 0.3s ease-in-out\",e.style.transform=`translateY(-${s}px)`,e.style.transition=\"transform 0.3s ease-in-out\"):(t.style.transform=\"translateY(0)\",t.style.transition=\"transform 0.3s ease-in-out\",e.style.transform=\"translateY(0)\",e.style.transition=\"transform 0.3s ease-in-out\")),n>50?(e?.classList.add(\"shadow-md\",\"py-2\"),e?.classList.remove(\"py-4\")):(e?.classList.remove(\"shadow-md\",\"py-2\"),e?.classList.add(\"py-4\"))});function o(){r?.classList.toggle(\"translate-x-full\"),document.body.classList.toggle(\"overflow-hidden\")}a?.addEventListener(\"click\",o);i?.addEventListener(\"click\",o);c.forEach(n=>{n.addEventListener(\"click\",o)});"]],"assets":["/_astro/aboutus.Cuf0tzrS.webp","/_astro/icon.CGGwzaKN.webp","/_astro/instagram-icon.CIrSZJa4.svg","/_astro/linkedin-icon.DAzIPaJf.svg","/_astro/about.D9mtNrUW.css","/favicon.svg","/icon.webp","/instagram-icon.svg","/linkedin-icon.svg","/Canva/1.webp","/Canva/aboutus.webp","/Canva/AkshayPanwar.webp","/Canva/PileConstruction.webp","/Canva/PileFoundation.webp","/Canva/PowerErection.webp","/Canva/PratapSinghJindal.webp","/Canva/RahulNagar.webp","/Canva/SpecialCage.webp","/Canva/StructuralWorks.webp","/Canva/what_we_do1.webp","/Canva/what_we_do2.webp","/Canva/what_we_do3.webp","/Canva/what_we_do4.webp","/Canva/what_we_do5.webp","/Certificates/1.jpg","/Certificates/2.jpg","/Certificates/3.jpg","/Certificates/4.jpg","/Certificates/5.jpg","/Partners/Afcons.webp","/Partners/Ayana.png","/Partners/Bajaj.webp","/Partners/bajel.webp","/Partners/Ganga.webp","/Partners/Hgiel.webp","/Partners/HP.webp","/Partners/Kalpatru.webp","/Partners/LT.webp","/Partners/NCC.webp","/Partners/NHIT.webp","/Partners/PECPL.webp","/Partners/Rajshyama.webp","/_astro/about.astro_astro_type_script_index_0_lang.DS3FaPRm.js","/_astro/certifications.astro_astro_type_script_index_0_lang.eY5JYotc.js","/_astro/Hero.astro_astro_type_script_index_0_lang.KlT0yzWu.js","/_astro/index.DKtf60Sy.js","/_astro/ScrollTrigger.BWsqEc1I.js","/_worker.js/index.js","/_worker.js/renderers.mjs","/_worker.js/_@astrojs-ssr-adapter.mjs","/_worker.js/_astro-internal_middleware.mjs","/_worker.js/_noop-actions.mjs","/SliderImages/1.webp","/SliderImages/10.webp","/SliderImages/19.webp","/SliderImages/2.webp","/SliderImages/3.webp","/SliderImages/4.webp","/SliderImages/7.webp","/SliderImages/Cage1.webp","/Site/1.webp","/Site/2.webp","/Site/3.webp","/Site/4.webp","/Site/5.webp","/Site/6.webp","/_worker.js/pages/about.astro.mjs","/_worker.js/pages/certifications.astro.mjs","/_worker.js/pages/contact.astro.mjs","/_worker.js/pages/index.astro.mjs","/_worker.js/pages/privacypolicy.astro.mjs","/_worker.js/pages/projects.astro.mjs","/_worker.js/pages/services.astro.mjs","/_worker.js/chunks/astro-designed-error-pages_BLQ8Zswf.mjs","/_worker.js/chunks/astro_Dfe0z8_3.mjs","/_worker.js/chunks/cloudflare-kv-binding_DMly_2Gl.mjs","/_worker.js/chunks/index_D95Xk8LG.mjs","/_worker.js/chunks/Layout_BTYZeC6D.mjs","/_worker.js/chunks/noop-middleware_D0D3lzj7.mjs","/_worker.js/chunks/path_lFLZ0pUM.mjs","/_worker.js/chunks/sharp_dnBjNDWA.mjs","/_worker.js/chunks/_@astrojs-ssr-adapter_CyqVHSlY.mjs","/_worker.js/_astro/about.D9mtNrUW.css","/_worker.js/_astro/aboutus.Cuf0tzrS.webp","/_worker.js/_astro/icon.CGGwzaKN.webp","/_worker.js/_astro/instagram-icon.CIrSZJa4.svg","/_worker.js/_astro/linkedin-icon.DAzIPaJf.svg","/_worker.js/pages/services/pile-foundation.astro.mjs","/_worker.js/pages/services/power-transmission.astro.mjs","/_worker.js/chunks/astro/server_CdbN314I.mjs","/about/index.html","/certifications/index.html","/contact/index.html","/privacyPolicy/index.html","/projects/index.html","/services/pile-foundation/index.html","/services/power-transmission/index.html","/services/index.html","/index.html"],"buildFormat":"directory","checkOrigin":true,"serverIslandNameMap":[],"key":"oXO5VWMHUDRSwb78f5qY8ppVIm7ONCReB1iOA2NOSW4=","sessionConfig":{"driver":"cloudflare-kv-binding","options":{"binding":"SESSION"}}});
+if (manifest.sessionConfig) manifest.sessionConfig.driverModule = () => import('./chunks/cloudflare-kv-binding_DMly_2Gl.mjs');
+
+export { manifest };
