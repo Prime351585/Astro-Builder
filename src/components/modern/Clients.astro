@@ -1,4 +1,6 @@
 ---
+import Image from "astro/components/Image.astro";
+
 const partners = [
     { name: "Bajaj", logo: "/Partners/Bajaj.webp" },
     { name: "Bajel", logo: "/Partners/bajel.webp" },
@@ -43,7 +45,10 @@ const partners = [
                 {
                     partners.map((partner) => (
                         <div class="logo-item">
-                            <img
+                            <Image
+                            format="avif"
+                            width={32}
+                            height={32}
                                 src={partner.logo}
                                 alt={partner.name}
                                 class="logo-image"
@@ -69,7 +74,10 @@ const partners = [
                 {
                     partners.map((partner) => (
                         <div class="logo-item">
-                            <img
+                            <Image
+                            format="avif"
+                            width={32}
+                            height={32}
                                 src={partner.logo}
                                 alt={partner.name}
                                 class="logo-image"
