@@ -10,8 +10,6 @@ export default defineConfig({
   // output: "server",
   adapter: cloudflare(),
   site:"https://dwizzyinfra.com/",
-  redirects:{
-    "/about": "/"
-  }
+ 
   
 });
