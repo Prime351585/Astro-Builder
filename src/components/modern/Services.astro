@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 const services = [
     {
         title: "Power Transmission",
@@ -47,11 +49,15 @@ const services = [
                 services.map((service) => (
                     <div class="group bg-white p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border-b-4 border-transparent hover:border-primary">
                         <div class="mb-6 overflow-hidden rounded-lg h-48">
-                            <img
+                            <Image
                                 src={service.image}
                                 alt={service.title}
+                                width={600}
+                                height={400}
+                                format="webp"
+                                quality={80}
+                                loading="lazy"
                                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                                
                                 style="will-change: transform;"
                             />
                         </div>

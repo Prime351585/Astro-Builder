@@ -5,7 +5,7 @@ const partners = [
     { name: "Bajaj", logo: "/Partners/Bajaj.webp" },
     { name: "Bajel", logo: "/Partners/bajel.webp" },
     { name: "Afcons", logo: "/Partners/Afcons.webp" },
-    { name: "Ayana", logo: "/Partners/Ayana.png" },
+    { name: "Ayana", logo: "/Partners/Ayana.webp" },
     { name: "Hgiel", logo: "/Partners/Hgiel.webp" },
     { name: "HP", logo: "/Partners/HP.webp" },
     { name: "L&T", logo: "/Partners/LT.webp" },
@@ -46,13 +46,14 @@ const partners = [
                     partners.map((partner) => (
                         <div class="logo-item">
                             <Image
-                            format="avif"
-                            width={32}
-                            height={32}
                                 src={partner.logo}
                                 alt={partner.name}
+                                width={300}
+                                height={100}
+                                format="webp"
+                                quality={85}
+                                loading="lazy"
                                 class="logo-image"
-                               
                             />
                         </div>
                     ))
@@ -61,11 +62,15 @@ const partners = [
                 {
                     partners.map((partner) => (
                         <div class="logo-item">
-                            <img
+                            <Image
                                 src={partner.logo}
                                 alt={partner.name}
+                                width={300}
+                                height={100}
+                                format="webp"
+                                quality={85}
+                                loading="lazy"
                                 class="logo-image"
-                                
                             />
                         </div>
                     ))
@@ -75,13 +80,14 @@ const partners = [
                     partners.map((partner) => (
                         <div class="logo-item">
                             <Image
-                            format="avif"
-                            width={32}
-                            height={32}
                                 src={partner.logo}
                                 alt={partner.name}
+                                width={300}
+                                height={100}
+                                format="webp"
+                                quality={85}
+                                loading="lazy"
                                 class="logo-image"
-                                
                             />
                         </div>
                     ))
