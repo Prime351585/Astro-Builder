@@ -1,128 +1,182 @@
 [
-    {
-      "Heading": "66 KVA Transmission Line on Monopoles",
-      "Client": "Bajaj Electricals Ltd",
-      "Scope": "Monopoles Foundation & Erection Job",
-      "Dia": "2500 MM",
-      "Duration": "2021-05-08 to 2022-06-11",
-      "Value": "₹ 6,449,467",
-      "Status": "Work Completed"
-    },
-    {
-      "Heading": "132 KVA Monopoles Line in OPPO Project",
-      "Client": "Bajaj Electricals Ltd",
-      "Scope": "Civil Foundation Work",
-      "Dia": "N/A",
-      "Duration": "2021-06-10 to 2021-09-26",
-      "Value": "₹ 2,217,000",
-      "Status": "Work Completed"
-    },
-    {
-      "Heading": "132 KVA Monopoles Line in OPPO Project",
-      "Client": "Bajaj Electricals Ltd",
-      "Scope": "Monopoles Foundation Job",
-      "Dia": "2500 MM / 3000 MM",
-      "Duration": "2021-08-17 to 2021-11-25",
-      "Value": "₹ 3,655,000",
-      "Status": "Work Completed"
-    },
-    {
-      "Heading": "Elevated Viaduct in Delhi-Meerut RRTS Corridor",
-      "Client": "Afcons Infrastructure Ltd",
-      "Scope": "Pile Foundation & Pile Chipping Job",
-      "Dia": "800 MM / 1200 MM",
-      "Duration": "2022-06-02 to 2023-07-15",
-      "Value": "₹ 9,060,000",
-      "Status": "Work Completed"
-    },
-    {
-      "Heading": "Elevated Viaduct in Delhi-Meerut RRTS Corridor",
-      "Client": "Larsen & Toubro Ltd",
-      "Scope": "Pile Foundation",
-      "Dia": "1200 MM",
-      "Duration": "2022-02-23 to 2022-04-05",
-      "Value": "₹ 1,500,000",
-      "Status": "Work Completed"
-    },
-    {
-      "Heading": "Pile Foundation Job at 66 KVA Substation",
-      "Client": "Skytech Engineers",
-      "Scope": "Pile Foundation",
-      "Dia": "400 MM / 500 MM / 600 MM",
-      "Duration": "2022-10-15 to 2022-12-10",
-      "Value": "₹ 900,000",
-      "Status": "Work Completed"
-    },
-    {
-      "Heading": "132 KVA Monopoles Line in Gwalior",
-      "Client": "Bajel Electricals Ltd",
-      "Scope": "Monopoles Foundation & Erection Job",
-      "Dia": "2500 MM / 3000 MM / 35000 MM",
-      "Duration": "2022-11-01 to Ongoing",
-      "Value": "₹ 13,500,000",
-      "Status": "Under Progress"
-    },
-    {
-      "Heading": "400 KVA Monopoles Line from Noida to Ghaziabad",
-      "Client": "Bajaj Electricals Ltd",
-      "Scope": "Monopoles Foundation Job",
-      "Dia": "2500 MM / 3000 MM / 35000 MM",
-      "Duration": "2022-11-05 to 2023-05-15",
-      "Value": "₹ 5,562,000",
-      "Status": "Work Completed"
-    },
-    {
-      "Heading": "Ganga Expressway Pile Chipping Job",
-      "Client": "Larsen & Toubro Ltd",
-      "Scope": "Pile Chipping Job",
-      "Dia": "1000 MM / 1200 MM / 1500 MM",
-      "Duration": "2023-05-12 to 2023-11-21",
-      "Value": "₹ 1,365,000",
-      "Status": "Work Completed"
-    },
-    {
-      "Heading": "220 KVA MC BN Towers LILO Project",
-      "Client": "Bajel Projects Ltd",
-      "Scope": "Civil Foundation / Piling Job",
-      "Dia": "1000 MM / 1200 MM / 1500 MM",
-      "Duration": "2023-06-20 to 2024-02-28",
-      "Value": "₹ 16,534,000",
-      "Status": "Work Completed"
-    },
-    {
-      "Heading": "1200 MM Pile Viaduct Construction",
-      "Client": "H.G Infra Engineering Ltd",
-      "Scope": "Piling Job with Hydraulic Rig",
-      "Dia": "1200 MM",
-      "Duration": "2023-11-29 to 2024-07-18",
-      "Value": "₹ 25,000,000",
-      "Status": "Work Completed"
-    },
-    {
-      "Heading": "220 KVA Monopoles Construction in Gujarat",
-      "Client": "Bajel Projects Ltd",
-      "Scope": "Monopoles Foundation Job",
-      "Dia": "3000 MM / 3200 MM / 3500 MM / 4500 MM",
-      "Duration": "2023-12-30 to 2024-03-26",
-      "Value": "₹ 25,500,000",
-      "Status": "Work Completed"
-    },
-    {
-      "Heading": "Pile Foundation 1200 MM Dia Project",
-      "Client": "Bajel Projects Ltd",
-      "Scope": "Pile Foundation",
-      "Dia": "1200 MM",
-      "Duration": "2024-05-15 to 2024-06-26",
-      "Value": "₹ 7,500,000",
-      "Status": "Work Completed"
-    },
-    {
-      "Heading": "Six Lane Highway Development in Uttar Pradesh",
-      "Client": "Raj Shyama Constructions Pvt Ltd",
-      "Scope": "Piling Job with Hydraulic Rig Machine",
-      "Dia": "1200 MM",
-      "Duration": "2024-07-10 to Ongoing",
-      "Value": "₹ 5,000,000",
-      "Status": "Under Progress"
-    }
+  {
+    "Heading": "66 KV Transmission Line Turnkey Basis PSPCL, Ludhiana, Punjab",
+    "Client": "Bajaj Electricals Ltd",
+    "Scope": "Monopoles Foundation & Erection Job",
+    "Dia": "2500MM",
+    "Duration": "8 May 2021 to 11 Jun 2022",
+    "Value": "₹ 6,449,467",
+    "Status": "Work Completed"
+  },
+  {
+    "Heading": "Construction of 132KV Monopoles Line in OPPO Project Noida, U.P",
+    "Client": "Bajaj Electricals Ltd",
+    "Scope": "Monopoles Foundation Job",
+    "Dia": "2500MM/3000MM",
+    "Duration": "17 Aug 2021 to 25 Nov 2021",
+    "Value": "₹ 3,655,000",
+    "Status": "Work Completed"
+  },
+  {
+    "Heading": "Construction of Elevated Viaduct Delhi-Meerut RRTS Corridor Package-06 Sarai Kali Khan Station to Kondli, Delhi",
+    "Client": "Afcons Infrastructure Limited",
+    "Scope": "Pile Foundation & Pile Chipping Job",
+    "Dia": "800MM/1200MM",
+    "Duration": "2 Jun 2022 to 15 Jul 2023",
+    "Value": "₹ 9,060,000",
+    "Status": "Work Completed"
+  },
+  {
+    "Heading": "Construction of Elevated Viaduct Delhi-Meerut RRTS Corridor Package PKG-P3L1, U.P",
+    "Client": "Larsen & Toubro Ltd",
+    "Scope": "Pile Foundation",
+    "Dia": "1200 MM DIA",
+    "Duration": "23 Feb 2022 to 5 Apr 2022",
+    "Value": "₹ 1,500,000",
+    "Status": "Work Completed"
+  },
+  {
+    "Heading": "Pile Foundation Job 600MM DIA at 66KV Substation, BSES, Mother Dairy, Delhi",
+    "Client": "Skytech Engineers",
+    "Scope": "Pile Foundation",
+    "Dia": "400/500/600MM",
+    "Duration": "15 Oct 2022 to 10 Dec 2022",
+    "Value": "₹ 900,000",
+    "Status": "Work Completed"
+  },
+  {
+    "Heading": "Construction of 132KV Monopoles Line in Gwalior, Madhya Pradesh",
+    "Client": "Bajaj Electricals Ltd",
+    "Scope": "Monopoles Foundation & Erection Job",
+    "Dia": "2500/3000/3500MM",
+    "Duration": "1 Nov 2022 to 10 Jan 2023",
+    "Value": "₹ 13,500,000",
+    "Status": "Work Completed"
+  },
+  {
+    "Heading": "PGCIL 400KV Mohanlal Ganj, Gaur City Noida to Pratap Vihar Ghaziabad",
+    "Client": "Bajaj Electricals Ltd",
+    "Scope": "Monopoles Foundation Job",
+    "Dia": "2500/3000/3500 MM DIA",
+    "Duration": "5 Nov 2022 to 15 May 2023",
+    "Value": "₹ 5,562,000",
+    "Status": "Work Completed"
+  },
+  {
+    "Heading": "Ganga Expressway Hapur, U.P",
+    "Client": "Larsen & Toubro Ltd",
+    "Scope": "Pile Chipping Job",
+    "Dia": "1000/1200/1500 MM DIA",
+    "Duration": "12 May 2023 to 21 Nov 2023",
+    "Value": "₹ 1,365,000",
+    "Status": "Work Completed"
+  },
+  {
+    "Heading": "220 KV MC BN Towers Used in Creation of LILO of 400 KV SS Sector 72 Gurugram(PGCIL) & 220 KV SS Sector 72 Gurugram (HVPNL) at 220 KVA SS Sector-12 II Gurugram Haryana",
+    "Client": "Bajel Projects Ltd",
+    "Scope": "NIT Tower Civil Foundation/Piling Job",
+    "Dia": "1000/1200/1500 MM DIA",
+    "Duration": "20 Jun 2023 to 28 Feb 2024",
+    "Value": "₹ 16,534,000",
+    "Status": "Work Completed"
+  },
+  {
+    "Heading": "Construction of Viaduct Work Boring, Drilling Vertical Bore by Hydraulic Rig Machine up to 25M Depth",
+    "Client": "H.G Infra Engineering Ltd",
+    "Scope": "Piling Job with Hydraulic Rig Machine",
+    "Dia": "1200 MM DIA",
+    "Duration": "29 Nov 2023 to 18 Jul 2024",
+    "Value": "₹ 25,000,000",
+    "Status": "Work Completed"
+  },
+  {
+    "Heading": "Construction of 220KV Monopoles Line in Beccahraji, Meshsana, Gujarat",
+    "Client": "Bajel Projects Ltd",
+    "Scope": "Monopoles Foundation Job",
+    "Dia": "3000/3200/3500/4500 MM Dia",
+    "Duration": "30 Dec 2023 to 26 Mar 2024",
+    "Value": "₹ 25,500,000",
+    "Status": "Work Completed"
+  },
+  {
+    "Heading": "PGCIL Maharanibagh 400 KV D/C line at Maharanibagh S/S and extension of above LILO section from Maharanibagh upto Narela S/S to form 2x400 KV D/C Maharanibagh-Narela Line-Pile Foundation Work",
+    "Client": "Bajel Projects Ltd",
+    "Scope": "Pile Foundation",
+    "Dia": "1200 MM DIA",
+    "Duration": "15 May 2024 to 26 Jun 2024",
+    "Value": "₹ 7,500,000",
+    "Status": "Work Completed"
+  },
+  {
+    "Heading": "Development of Six Lane Access Central Highway from Gogwan Jalalpur (Shamili) to Ranipur Barsi(Saharanpur) (from Ch. (-00+600 to 45+500) of Shamli-Ambala section [NH344GM] of Bareilly-Ludhaina Economic Corridor on EPC Mode under Bharatmala Pariyojana. Phase-1 in the State of Uttar Pradesh (Package-1)",
+    "Client": "Raj Shyama Constructions Pvt Ltd",
+    "Scope": "Piling Job with Hydraulic Rig Machine",
+    "Dia": "1200 MM DIA",
+    "Duration": "10 Jul 2024 to 17 Nov 2024",
+    "Value": "₹ 5,000,000",
+    "Status": "Work Completed"
+  },
+  {
+    "Heading": "Piling work of Monopiles at Sector 5 Sohana, Haryana Tathastu II",
+    "Client": "Ganga Realty Pvt. Ltd",
+    "Scope": "Monopoles Foundation & Erection Job",
+    "Dia": "2000 MM DIA 1700 MM DIA 2200 MM DIA 2600 MM DIA",
+    "Duration": "5 January 2025",
+    "Value": "₹ 3,000,000",
+    "Status": "Under Progress"
+  },
+  {
+    "Heading": "Execution of Monopole Works",
+    "Client": "Ayana Renewable Power Private Limited",
+    "Scope": "Monopoles Foundation & Erection Job",
+    "Dia": "3000 MM DIA",
+    "Duration": "3 Mar 2025 to 31 March 2025",
+    "Value": "₹ 2,200,000",
+    "Status": "Work Completed"
+  },
+  {
+    "Heading": "Construction of 400KV Monopoles Line in Greater Noida, U.P.",
+    "Client": "Tata Projects/ Bajel Projects Ltd",
+    "Scope": "Monopoles Foundation Job",
+    "Dia": "2500 MM DIA 2800 MM DIA 3400 MM DIA 3600 MM DIA",
+    "Duration": "6 Mar 2025",
+    "Value": "₹ 5,000,000",
+    "Status": "Under Progress"
+  },
+  {
+    "Heading": "Construction of 132KV Monopoles Line Raipur",
+    "Client": "Powersol Engineers & Consultants Pvt Ltd",
+    "Scope": "Monopoles Foundation Job",
+    "Dia": "3000 MM DIA",
+    "Duration": "27 May 2025 to 8 Aug 2025",
+    "Value": "₹ 4,000,000",
+    "Status": "Under Progress"
+  },
+  {
+    "Heading": "The Prestige City, Indirapuram, Ghaziabad, Uttar Pradesh",
+    "Client": "Kalapatru Projects International Limited",
+    "Scope": "Pile Chipping Job",
+    "Dia": "1000/1200/1500 MM DIA",
+    "Duration": "5 Nov 2025",
+    "Value": "₹800,000",
+    "Status": "Under Progress"
+  },
+  {
+    "Heading": "8 MM liner driving at Water Works, Major Yamuna Bridge, Agra Metro AGCC-07 for L&T, including mobilization, installation, depth driving",
+    "Client": "Larsen & Toubro Ltd",
+    "Scope": "Liner driving with Vibro Hammer upto the depth of 20 meters",
+    "Dia": "1500 MM DIA",
+    "Duration": "1 Dec 2025",
+    "Value": "5,000,000",
+    "Status": "Under Progress"
+  },
+  {
+    "Heading": "Executive Engineer(Pl), PTCUL, Selaqui Power Transmission Corporation of Uttarakhand Limited 220/33V GIS substation, Selaqui Industrial Area, Shankerpur, Hakumatpur, Dehradun Uttarakhand",
+    "Client": "Rajesh Power SErvices Ltd",
+    "Scope": "Monopoles Foundation and Erection Job",
+    "Dia": "2500 MM DIA",
+    "Duration": "10 Dec 2025",
+    "Value": "₹ 1,550,000",
+    "Status": "Under Progress"
+  }
 ]
