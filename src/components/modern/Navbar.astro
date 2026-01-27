@@ -62,7 +62,7 @@ import linkedinIcon from "/public/linkedin-icon.svg";
                     class="hover:opacity-80 transition-opacity"
                 >
                     <Image
-                    format="avif"
+                        format="avif"
                         class="w-4 h-4 invert"
                         src={instagramIcon}
                         alt="Instagram"
@@ -75,7 +75,7 @@ import linkedinIcon from "/public/linkedin-icon.svg";
                     class="hover:opacity-80 transition-opacity"
                 >
                     <Image
-                    format="avif"
+                        format="avif"
                         class="w-4 h-4 invert"
                         src={linkedinIcon}
                         alt="LinkedIn"
@@ -94,7 +94,7 @@ import linkedinIcon from "/public/linkedin-icon.svg";
             <!-- Logo -->
             <a href="/" class="flex items-center group">
                 <Image
-                format="avif"
+                    format="avif"
                     class="w-20 md:w-24 transition-transform duration-300 group-hover:scale-105"
                     src={icon}
                     alt="Dwizzy Infra Logo"
@@ -154,6 +154,17 @@ import linkedinIcon from "/public/linkedin-icon.svg";
                             class="relative hover:text-primary transition-colors py-2 group"
                         >
                             Certifications
+                            <span
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+                            ></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="/blog/"
+                            class="relative hover:text-primary transition-colors py-2 group"
+                        >
+                            Blog
                             <span
                                 class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
                             ></span>
@@ -265,6 +276,13 @@ import linkedinIcon from "/public/linkedin-icon.svg";
                 </li>
                 <li>
                     <a
+                        href="/blog/"
+                        class="hover:text-primary transition-colors mobile-link"
+                        >Blog</a
+                    >
+                </li>
+                <li>
+                    <a
                         href="/contact/"
                         class="hover:text-primary transition-colors mobile-link"
                         >Contact</a
@@ -300,7 +318,7 @@ import linkedinIcon from "/public/linkedin-icon.svg";
                         class="text-white hover:text-primary"
                     >
                         <Image
-                        format="avif"
+                            format="avif"
                             class="w-6 h-6 invert"
                             src={instagramIcon}
                             alt="Instagram"
@@ -312,7 +330,7 @@ import linkedinIcon from "/public/linkedin-icon.svg";
                         class="text-white hover:text-primary"
                     >
                         <Image
-                        format="avif"
+                            format="avif"
                             class="w-6 h-6 invert"
                             src={linkedinIcon}
                             alt="LinkedIn"

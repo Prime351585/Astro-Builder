@@ -1,0 +1,253 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Blog1Img from "../../assets/blogImages/blog1.webp";
+import BlogTestImg from "../../assets/blogImages/test.webp";
+// Blog post type definition
+interface BlogPost {
+    title: string;
+    slug: string;
+    excerpt: string;
+    image: any;
+    date: string;
+    category: string;
+    readTime: string;
+}
+
+// Blog posts data - you'll add actual blog posts here
+const blogPosts: BlogPost[] = [
+    {
+        title: "What Is Monopole Erection? A Simple Guide for Infrastructure Projects",
+        slug: "monopole-erection-guide",
+        excerpt: "Discover what monopole erection is, its importance in power and telecom infrastructure, step-by-step installation, and best practices for safe, reliable projects.",
+        date: "2026-01-27",
+        category: "Infrastructure",
+        readTime: "8 min read",
+        image: Blog1Img,
+    },
+    
+];
+
+// Structured data for SEO
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Dwizzy Infra Blog",
+    "description": "Expert insights on infrastructure, construction, and power transmission projects",
+    "url": "https://dwizzyinfra.com/blog/",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Dwizzy Infra",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://dwizzyinfra.com/icon.webp"
+        }
+    }
+};
+---
+
+<Layout 
+    title="Blog - Dwizzy Infra | Infrastructure & Construction Insights" 
+    description="Explore expert insights, industry trends, and project updates from Dwizzy Infra. Stay informed about infrastructure development, power transmission, and construction best practices."
+>
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-black text-white py-20 overflow-hidden">
+            <div
+                class="absolute inset-0 bg-[url('/SliderImages/2.webp')] bg-cover bg-center opacity-30"
+            >
+            </div>
+          
+
+            <div class="container mx-auto px-4 relative z-10">
+                <!-- Breadcrumb Navigation -->
+                <nav class="mb-6" aria-label="Breadcrumb">
+                    <ol class="flex items-center space-x-2 text-sm text-gray-300" itemscope itemtype="https://schema.org/BreadcrumbList">
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <a 
+                                href="/" 
+                                class="hover:text-primary transition-colors"
+                                itemprop="item"
+                            >
+                                <span itemprop="name">Home</span>
+                            </a>
+                            <meta itemprop="position" content="1" />
+                        </li>
+                        <li class="text-gray-500">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </li>
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <span class="text-white font-semibold" itemprop="name">Blog</span>
+                            <meta itemprop="position" content="2" />
+                        </li>
+                    </ol>
+                </nav>
+
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                        Our <span class="text-primary">Blog</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+                        Expert insights on infrastructure, construction, and power transmission projects
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Posts Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                {blogPosts.length === 0 ? (
+                    <!-- Empty State -->
+                    <div class="text-center py-20">
+                        <div class="max-w-2xl mx-auto">
+                            <div class="bg-gray-50 rounded-lg p-12 border-2 border-dashed border-gray-300">
+                                <svg 
+                                    class="w-24 h-24 mx-auto mb-6 text-gray-400" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path 
+                                        stroke-linecap="round" 
+                                        stroke-linejoin="round" 
+                                        stroke-width="2" 
+                                        d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                                    ></path>
+                                </svg>
+                                <h2 class="text-3xl font-bold text-black mb-4">
+                                    Coming Soon
+                                </h2>
+                                <p class="text-gray-600 text-lg mb-6">
+                                    We're working on creating valuable content for you. Check back soon for expert insights on infrastructure and construction.
+                                </p>
+                                <a 
+                                    href="/contact/" 
+                                    class="inline-block px-8 py-4 bg-primary text-white font-bold hover:bg-black transition-colors duration-300 uppercase tracking-wider"
+                                >
+                                    Contact Us
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                ) : (
+                    <!-- Blog Posts Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                        {blogPosts.map((post) => (
+                            <article class="group bg-white shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border-b-4 border-primary">
+                                <!-- Featured Image -->
+                                <a href={`/blog/${post.slug}/`} class="block relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
+                                        <span class="text-white font-bold text-lg">Read More →</span>
+                                    </div>
+                                    <Image
+                                        format="avif"
+                                        src={post.image}
+                                        alt={post.title}
+                                        width={400}
+                                        height={250}
+                                        class="w-full h-64 object-contain transform group-hover:scale-110 transition-transform duration-700"
+                                    />
+                                </a>
+
+                                <!-- Post Content -->
+                                <div class="p-6">
+                                    <!-- Meta Information -->
+                                    <div class="flex items-center justify-between mb-4 text-sm text-gray-600">
+                                        <span class="bg-primary/10 text-primary px-3 py-1 font-semibold uppercase tracking-wider">
+                                            {post.category}
+                                        </span>
+                                        <time datetime={post.date} class="flex items-center gap-1">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            {post.readTime}
+                                        </time>
+                                    </div>
+
+                                    <!-- Title -->
+                                    <h2 class="text-2xl font-bold text-black mb-3 group-hover:text-primary transition-colors duration-300">
+                                        <a href={`/blog/${post.slug}/`}>
+                                            {post.title}
+                                        </a>
+                                    </h2>
+
+                                    <!-- Excerpt -->
+                                    <p class="text-gray-700 mb-4 leading-relaxed">
+                                        {post.excerpt}
+                                    </p>
+
+                                    <!-- Read More Link -->
+                                    <a 
+                                        href={`/blog/${post.slug}/`}
+                                        class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all duration-300"
+                                    >
+                                        Read Article
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                        </svg>
+                                    </a>
+
+                                    <!-- Date -->
+                                    <div class="mt-4 pt-4 border-t border-gray-200">
+                                        <p class="text-sm text-gray-500">
+                                            Published on {new Date(post.date).toLocaleDateString('en-US', { 
+                                                year: 'numeric', 
+                                                month: 'long', 
+                                                day: 'numeric' 
+                                            })}
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="relative py-24 bg-black text-white overflow-hidden">
+            <div
+                class="absolute inset-0 bg-[url('/SliderImages/1.webp')] bg-cover bg-center opacity-20 bg-fixed"
+            >
+            </div>
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/70"
+            >
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <h2
+                    class="text-3xl md:text-5xl font-bold mb-8 leading-tight max-w-4xl mx-auto"
+                >
+                    Ready to Start Your Next Project?
+                </h2>
+                <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                    Partner with Dwizzy Infra for reliable, precision-engineered
+                    infrastructure solutions.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a
+                        href="/contact/"
+                        class="px-10 py-5 bg-primary text-white font-bold rounded-none hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-wider shadow-lg hover:shadow-primary/50 transform hover:-translate-y-1"
+                    >
+                        Get a Quote
+                    </a>
+                    <a
+                        href="/projects/"
+                        class="px-10 py-5 border-2 border-white text-white font-bold rounded-none hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-wider hover:shadow-lg transform hover:-translate-y-1"
+                    >
+                        View Projects
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
