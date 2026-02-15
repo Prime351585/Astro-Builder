@@ -1,1 +1,4 @@
 node_modules
+.copilot-blog-prompt.md
+blog-drafts/
+.blog-task.json

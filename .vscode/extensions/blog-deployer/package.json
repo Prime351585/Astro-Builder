@@ -1,0 +1,63 @@
+{
+  "name": "blog-deployer",
+  "displayName": "Blog Deployer for OpenClaw",
+  "description": "Automated blog deployment via Copilot Chat",
+  "version": "1.0.0",
+  "publisher": "openclaw-local",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "workspaceContains:.blog-task.json",
+    "onCommand:blogDeployer.runTask",
+    "onCommand:blogDeployer.pushToGit",
+    "onCommand:blogDeployer.retryPrompt"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "blogDeployer.runTask",
+        "title": "Blog Deployer: Run Blog Task"
+      },
+      {
+        "command": "blogDeployer.pushToGit",
+        "title": "Blog Deployer: Push to GitHub"
+      },
+      {
+        "command": "blogDeployer.retryPrompt",
+        "title": "Blog Deployer: Retry Copilot Prompt"
+      },
+      {
+        "command": "blogDeployer.pickAndRun",
+        "title": "Blog Deployer: Pick Task File and Run"
+      }
+    ],
+    "configuration": {
+      "title": "Blog Deployer",
+      "properties": {
+        "blogDeployer.copilotModel": {
+          "type": "string",
+          "default": "claude-sonnet-4",
+          "description": "Preferred Copilot model for blog generation"
+        },
+        "blogDeployer.autoSendPrompt": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically send prompt to Copilot (false = paste only)"
+        },
+        "blogDeployer.autoDeleteTaskFile": {
+          "type": "boolean",
+          "default": true,
+          "description": "Delete .blog-task.json after processing"
+        },
+        "blogDeployer.promptDelayMs": {
+          "type": "number",
+          "default": 2000,
+          "description": "Delay in ms before sending prompt (lets Copilot panel load)"
+        }
+      }
+    }
+  }
+}

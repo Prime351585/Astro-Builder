@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import Blog1Img from "../../assets/blogImages/blog1.webp";
 import BlogTestImg from "../../assets/blogImages/test.webp";
+import Blog2Img from "../../assets/blogImages/Blog2.jpg";
 // Blog post type definition
 interface BlogPost {
     title: string;
@@ -16,6 +17,15 @@ interface BlogPost {
 
 // Blog posts data - you'll add actual blog posts here
 const blogPosts: BlogPost[] = [
+    {
+        title: "Monopole Towers Explained: Types, Uses, and Advantages in EPC Projects",
+        slug: "monopole-towers-complete-guide",
+        excerpt: "Learn everything about monopole towers – types, applications, and benefits for EPC projects. Discover why Dwizzy Infra is a trusted provider of monopole erection and power transmission solutions.",
+        date: "2026-02-15",
+        category: "Infrastructure",
+        readTime: "7 min read",
+        image: Blog2Img,
+    },
     {
         title: "What Is Monopole Erection? A Simple Guide for Infrastructure Projects",
         slug: "monopole-erection-guide",
