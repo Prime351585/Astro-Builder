@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import Blog1Img from "../../assets/blogImages/blog1.webp";
 import BlogTestImg from "../../assets/blogImages/test.webp";
 import Blog2Img from "../../assets/blogImages/Blog2.jpg";
+import Blog3Img from "../../assets/blogImages/Blog3.jpg";
 // Blog post type definition
 interface BlogPost {
     title: string;
@@ -17,6 +18,15 @@ interface BlogPost {
 
 // Blog posts data - you'll add actual blog posts here
 const blogPosts: BlogPost[] = [
+    {
+        title: "Benefits of Monopole Towers for Power Transmission",
+        slug: "benefits-of-monopole-towers-for-power-transmission",
+        excerpt: "Looking for efficient power transmission solutions? Explore why monopole towers are the preferred choice in India for durability, cost-effectiveness, and urban-friendly designs.",
+        date: "2026-02-25",
+        category: "Infrastructure",
+        readTime: "6 min read",
+        image: Blog3Img,
+    },
     {
         title: "Monopole Towers Explained: Types, Uses, and Advantages in EPC Projects",
         slug: "monopole-towers-complete-guide",
