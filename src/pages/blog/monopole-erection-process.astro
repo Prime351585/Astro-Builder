@@ -1,0 +1,506 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import BlogImg from "../../assets/blogImages/Blog4.webp";
+
+// Blog post metadata
+const post = {
+    title: "How Monopole Erection Works: Step-by-Step Process Explained",
+    description:
+        "Learn how monopole erection works step by step, from site survey and foundation construction to crane lifting, assembly, and final inspection for power and telecom towers.",
+    author: "Dwizzy Infra Team",
+    date: "2026-03-11",
+    category: "Infrastructure",
+    readTime: "7 min read",
+    image: BlogImg,
+    keywords: [
+        "monopole erection",
+        "monopole erection process",
+        "how monopole erection works",
+        "power transmission towers",
+        "telecom monopole",
+        "Dwizzy Infra",
+    ],
+};
+
+// Structured data for SEO
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    image: `https://dwizzyinfra.com/blogImages/Blog4.webp`,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+        "@type": "Organization",
+        name: post.author,
+    },
+    publisher: {
+        "@type": "Organization",
+        name: "Dwizzy Infra",
+        logo: {
+            "@type": "ImageObject",
+            url: "https://dwizzyinfra.com/icon.webp",
+        },
+    },
+    mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": "https://dwizzyinfra.com/blog/monopole-erection-process/",
+    },
+};
+---
+
+<Layout
+    title={`${post.title} - Dwizzy Infra Blog`}
+    description={post.description}
+>
+    <!-- Structured Data for SEO -->
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify(structuredData)}
+    />
+
+    <main>
+        <!-- Hero Section with Featured Image -->
+        <section class="relative bg-black text-white py-20 overflow-hidden">
+            <div
+                class="absolute inset-0 bg-[url('/SliderImages/2.webp')] bg-cover bg-center opacity-30"
+            >
+            </div>
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/70"
+            >
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10">
+                <!-- Breadcrumb Navigation -->
+                <nav class="mb-8" aria-label="Breadcrumb">
+                    <ol
+                        class="flex items-center space-x-2 text-sm text-gray-300"
+                        itemscope
+                        itemtype="https://schema.org/BreadcrumbList"
+                    >
+                        <li
+                            itemprop="itemListElement"
+                            itemscope
+                            itemtype="https://schema.org/ListItem"
+                        >
+                            <a
+                                href="/"
+                                class="hover:text-primary transition-colors"
+                                itemprop="item"
+                            >
+                                <span itemprop="name">Home</span>
+                            </a>
+                            <meta itemprop="position" content="1" />
+                        </li>
+                        <li class="text-gray-500">
+                            <svg
+                                class="w-4 h-4"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </li>
+                        <li
+                            itemprop="itemListElement"
+                            itemscope
+                            itemtype="https://schema.org/ListItem"
+                        >
+                            <a
+                                href="/blog/"
+                                class="hover:text-primary transition-colors"
+                                itemprop="item"
+                            >
+                                <span itemprop="name">Blog</span>
+                            </a>
+                            <meta itemprop="position" content="2" />
+                        </li>
+                        <li class="text-gray-500">
+                            <svg
+                                class="w-4 h-4"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </li>
+                        <li
+                            itemprop="itemListElement"
+                            itemscope
+                            itemtype="https://schema.org/ListItem"
+                        >
+                            <span
+                                class="text-white font-semibold"
+                                itemprop="name">{post.title}</span
+                            >
+                            <meta itemprop="position" content="3" />
+                        </li>
+                    </ol>
+                </nav>
+
+                <!-- Post Header -->
+                <div class="max-w-4xl mx-auto text-center">
+                    <span
+                        class="inline-block bg-primary text-white px-4 py-2 font-bold uppercase tracking-wider text-sm mb-6"
+                    >
+                        {post.category}
+                    </span>
+
+                    <h1
+                        class="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+                    >
+                        {post.title}
+                    </h1>
+
+                    <div
+                        class="flex items-center justify-center gap-6 text-gray-300 text-sm"
+                    >
+                        <div class="flex items-center gap-2">
+                            <svg
+                                class="w-5 h-5 text-primary"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>{post.author}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg
+                                class="w-5 h-5 text-primary"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <time datetime={post.date}>
+                                {
+                                    new Date(post.date).toLocaleDateString(
+                                        "en-US",
+                                        {
+                                            year: "numeric",
+                                            month: "long",
+                                            day: "numeric",
+                                        },
+                                    )
+                                }
+                            </time>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg
+                                class="w-5 h-5 text-primary"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>{post.readTime}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Content -->
+        <article class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Featured Image -->
+                    <div class="mb-12 rounded-lg overflow-hidden shadow-2xl">
+                        <Image
+                            format="avif"
+                            src={post.image}
+                            alt={post.title}
+                            width={1200}
+                            height={600}
+                            class="w-full h-auto object-cover"
+                            loading="eager"
+                        />
+                    </div>
+
+                    <!-- Article Content -->
+                    <div class="prose prose-lg max-w-none">
+                        <!-- Introduction -->
+                        <p
+                            class="text-xl text-gray-700 leading-relaxed mb-8 font-medium"
+                        >
+                            If you've ever driven past a tall, single-column tower carrying power lines or telecom equipment, you've seen a monopole in action.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            These structures are widely used in power transmission, telecom, and infrastructure projects - and erecting them correctly is both a science and a skill. Understanding how monopole erection works helps engineers, contractors, and project managers plan better, avoid costly errors, and ensure long-term structural safety.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            At Dwizzy Infra, we specialize in high-quality monopole erection services across power transmission and infrastructure projects. Here's a clear, step-by-step breakdown of how the process actually works on the ground.
+                        </p>
+
+                        <!-- Step 1 -->
+                        <h2 class="text-3xl font-bold text-black mt-12 mb-6">
+                            Step 1: Site Survey and Foundation Design
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Every successful monopole erection begins long before any steel goes into the ground. Engineers conduct a thorough site survey to assess soil conditions, topography, load requirements, and environmental factors. Based on this data, a pile foundation or anchor bolt foundation is designed to support the monopole's weight, height, and expected wind loads.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Getting the foundation right is non-negotiable. A poorly designed base compromises the entire structure.
+                        </p>
+
+                        <!-- Step 2 -->
+                        <h2 class="text-3xl font-bold text-black mt-12 mb-6">
+                            Step 2: Foundation Construction and Curing
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Once the design is finalized, excavation begins. Reinforced concrete foundations or driven pile foundations are installed depending on soil type. Anchor bolts are precisely positioned according to the monopole's bolt circle pattern. The foundation must then cure fully - typically 21 to 28 days - before any erection begins. Rushing this stage is a common and dangerous mistake.
+                        </p>
+
+                        <!-- Step 3 -->
+                        <h2 class="text-3xl font-bold text-black mt-12 mb-6">
+                            Step 3: Material Inspection and Pre-Assembly
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            All monopole sections arrive on-site and undergo strict quality inspection. Engineers check dimensions, weld quality, coating integrity, and compliance with technical specifications. Flanged sections are laid out and pre-assembled horizontally on the ground, which allows teams to verify bolt alignment and fit before lifting - saving significant time and reducing risk.
+                        </p>
+
+                        <!-- Step 4 -->
+                        <h2 class="text-3xl font-bold text-black mt-12 mb-6">
+                            Step 4: Crane Setup and Lifting Plan
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Monopole erection requires precise crane selection. The crane capacity must account for the pole's total weight, height, and the distance from the foundation. A detailed lifting plan is prepared, including sling angles, pick points, and safety exclusion zones around the site. This phase is where experienced rigging and lifting crews become absolutely critical.
+                        </p>
+
+                        <!-- Step 5 -->
+                        <h2 class="text-3xl font-bold text-black mt-12 mb-6">
+                            Step 5: Pole Erection and Vertical Alignment
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            The crane lifts the assembled or bottom section of the monopole and carefully positions it onto the anchor bolts. The team immediately checks vertical plumb using precision levels and theodolites. Any deviation from plumb must be corrected before proceeding. Nuts are tightened in a cross-pattern sequence to ensure even load distribution across the base plate.
+                        </p>
+
+                        <!-- Step 6 -->
+                        <h2 class="text-3xl font-bold text-black mt-12 mb-6">
+                            Step 6: Section-by-Section Assembly (For Multi-Section Poles)
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            For taller monopoles, sections are lifted and joined sequentially. Each flange connection is torqued to manufacturer's specifications. Alignment is re-verified after every section is added. This is meticulous work - small angular errors at lower sections amplify significantly at greater heights.
+                        </p>
+
+                        <!-- Step 7 -->
+                        <h2 class="text-3xl font-bold text-black mt-12 mb-6">
+                            Step 7: Equipment Mounting and Final Inspection
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Once fully erected and plumbed, cross-arms, insulators, telecom mounts, or other equipment are installed. Earthing connections are made, and a final structural inspection confirms that all bolts are properly torqued, coatings are intact, and the pole meets design specifications before it's handed over for energization or commissioning.
+                        </p>
+
+                        <!-- Process Summary -->
+                        <h2 class="text-3xl font-bold text-black mt-12 mb-6">
+                            Monopole Erection Process at a Glance
+                        </h2>
+
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary text-2xl mt-1">●</span>
+                                <span class="text-gray-700"><strong>Site Survey & Foundation Design</strong> — soil assessment, load calculations, foundation type selection</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary text-2xl mt-1">●</span>
+                                <span class="text-gray-700"><strong>Foundation Construction & Curing</strong> — excavation, anchor bolt placement, 21–28 day curing period</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary text-2xl mt-1">●</span>
+                                <span class="text-gray-700"><strong>Material Inspection & Pre-Assembly</strong> — dimensional checks, weld quality, horizontal ground assembly</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary text-2xl mt-1">●</span>
+                                <span class="text-gray-700"><strong>Crane Setup & Lifting Plan</strong> — crane capacity selection, sling angles, safety exclusion zones</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary text-2xl mt-1">●</span>
+                                <span class="text-gray-700"><strong>Pole Erection & Vertical Alignment</strong> — crane lift, plumb verification, base plate torqueing</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary text-2xl mt-1">●</span>
+                                <span class="text-gray-700"><strong>Section-by-Section Assembly</strong> — sequential flange connections, alignment re-verification</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary text-2xl mt-1">●</span>
+                                <span class="text-gray-700"><strong>Equipment Mounting & Final Inspection</strong> — cross-arms, earthing, bolt torque verification, handover</span>
+                            </li>
+                        </ul>
+
+                        <!-- Conclusion -->
+                        <h2 class="text-3xl font-bold text-black mt-12 mb-6">
+                            Conclusion
+                        </h2>
+
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Monopole erection is a disciplined, multi-stage process where precision at every step determines structural performance and safety for decades. From foundation preparation to final inspection, no phase can be treated casually.
+                        </p>
+
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Partnering with experienced professionals like Dwizzy Infra ensures your project meets engineering standards, stays on schedule, and stands the test of time.
+                        </p>
+
+                        <!-- FAQs Section -->
+                        <h2 class="text-3xl font-bold text-black mt-16 mb-8">
+                            FAQs Related to How Monopole Erection Works
+                        </h2>
+
+                        <div class="space-y-6">
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="text-xl font-bold text-black mb-3">
+                                    How long does monopole erection typically take?
+                                </h4>
+                                <p class="text-gray-700">
+                                    Depending on height, site conditions, and foundation type, a single monopole erection can take anywhere from 2 to 7 days, excluding foundation curing time.
+                                </p>
+                            </div>
+
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="text-xl font-bold text-black mb-3">
+                                    What foundation type is best for monopoles?
+                                </h4>
+                                <p class="text-gray-700">
+                                    It depends on soil conditions. Pile foundations work best for weak or loose soils, while anchor bolt foundations suit stable, load-bearing ground. A geotechnical report determines the right choice.
+                                </p>
+                            </div>
+
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="text-xl font-bold text-black mb-3">
+                                    What crane capacity is needed for monopole erection?
+                                </h4>
+                                <p class="text-gray-700">
+                                    Crane capacity depends on the pole's total weight and height. Most monopole projects require cranes ranging from 50 to 300 tonnes. A structural engineer prepares a site-specific lift study.
+                                </p>
+                            </div>
+
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="text-xl font-bold text-black mb-3">
+                                    Can monopoles be erected in all weather conditions?
+                                </h4>
+                                <p class="text-gray-700">
+                                    No. High winds, heavy rain, and poor visibility make lifting operations unsafe. Operations are paused when wind speeds exceed safe thresholds defined in the project's lifting plan.
+                                </p>
+                            </div>
+
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="text-xl font-bold text-black mb-3">
+                                    What are the key safety measures during monopole erection?
+                                </h4>
+                                <p class="text-gray-700">
+                                    Key safety measures include exclusion zones around the lift area, certified rigging gear, operator competency checks, PPE compliance, and a pre-lift toolbox talk covering emergency procedures.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Share Section -->
+                    <div class="mt-12 pt-8 border-t-2 border-gray-200">
+                        <h3 class="text-xl font-bold text-black mb-4">
+                            Share this article
+                        </h3>
+                        <div class="flex gap-4">
+                            <a
+                                href={`https://www.linkedin.com/sharing/share-offsite/?url=https://dwizzyinfra.com/blog/monopole-erection-process/`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="px-6 py-3 bg-black text-white font-semibold hover:bg-primary transition-colors duration-300"
+                                aria-label="Share on LinkedIn"
+                            >
+                                LinkedIn
+                            </a>
+                            <a
+                                href={`https://twitter.com/intent/tweet?url=https://dwizzyinfra.com/blog/monopole-erection-process/&text=${encodeURIComponent(post.title)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="px-6 py-3 bg-black text-white font-semibold hover:bg-primary transition-colors duration-300"
+                                aria-label="Share on Twitter"
+                            >
+                                Twitter
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Back to Blog -->
+                    <div class="mt-12 text-center">
+                        <a
+                            href="/blog/"
+                            class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-bold hover:bg-black transition-colors duration-300 uppercase tracking-wider"
+                        >
+                            <svg
+                                class="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+                            </svg>
+                            Back to Blog
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- CTA Section -->
+        <section class="relative py-24 bg-black text-white overflow-hidden">
+            <div
+                class="absolute inset-0 bg-[url('/SliderImages/1.webp')] bg-cover bg-center opacity-20 bg-fixed"
+            >
+            </div>
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/70"
+            >
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <h2
+                    class="text-3xl md:text-5xl font-bold mb-8 leading-tight max-w-4xl mx-auto"
+                >
+                    Ready to Start Your Monopole Erection Project?
+                </h2>
+                <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                    Partner with Dwizzy Infra for precision-engineered monopole
+                    erection and infrastructure solutions that stand the test of time.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a
+                        href="/contact/"
+                        class="px-10 py-5 bg-primary text-white font-bold rounded-none hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-wider shadow-lg hover:shadow-primary/50 transform hover:-translate-y-1"
+                    >
+                        Get a Quote
+                    </a>
+                    <a
+                        href="/services/"
+                        class="px-10 py-5 border-2 border-white text-white font-bold rounded-none hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-wider hover:shadow-lg transform hover:-translate-y-1"
+                    >
+                        Our Services
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
