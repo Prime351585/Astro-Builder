@@ -394,25 +394,34 @@ const mobileLinkClass = (href: string) =>
 <script>
     const mobileMenuBtn = document.getElementById("mobile-menu-btn");
     const closeMenuBtn = document.getElementById("close-menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileMenu = document.getElementById("mobile-menu") as HTMLElement | null;
     const mobileLinks = document.querySelectorAll(".mobile-link");
 
     const topbar = document.querySelector(".topbar") as HTMLElement | null;
     const navbar = document.querySelector("#navbar") as HTMLElement | null;
     let topbarHeight = 0;
-    const isMobile = window.innerWidth < 768;
+    const isMobileView = () => window.innerWidth < 1024;
 
     // Calculate topbar height only on desktop
-    if (topbar && !isMobile) {
+    if (topbar && !isMobileView()) {
         topbarHeight = topbar.offsetHeight;
     }
+
+    // Move overlay to body to avoid parent stacking-context issues on mobile.
+    if (mobileMenu && mobileMenu.parentElement !== document.body) {
+        document.body.appendChild(mobileMenu);
+    }
+    if (mobileMenu) {
+        mobileMenu.style.zIndex = "100000";
+    }
+    mobileMenuBtn?.setAttribute("aria-expanded", "false");
 
     // Single scroll event listener for all scroll effects
     window.addEventListener("scroll", () => {
         const scrollY = window.scrollY;
 
         // Topbar slide-up and navbar positioning (desktop only)
-        if (!isMobile && topbar && navbar && topbarHeight > 0) {
+        if (!isMobileView() && topbar && navbar && topbarHeight > 0) {
             if (scrollY > topbarHeight) {
                 // Slide topbar up
                 topbar.style.transform = "translateY(-100%)";
@@ -441,15 +450,40 @@ const mobileLinkClass = (href: string) =>
     });
 
     // Mobile Menu Toggle
-    function toggleMenu() {
-        mobileMenu?.classList.toggle("translate-x-full");
-        document.body.classList.toggle("overflow-hidden");
+    function toggleMenu(forceOpen?: boolean) {
+        const shouldOpen =
+            typeof forceOpen === "boolean"
+                ? forceOpen
+                : mobileMenu?.classList.contains("translate-x-full") ?? false;
+
+        if (!mobileMenu) {
+            return;
+        }
+
+        if (shouldOpen) {
+            mobileMenu.classList.remove("translate-x-full");
+            document.body.classList.add("overflow-hidden");
+            mobileMenuBtn?.setAttribute("aria-expanded", "true");
+        } else {
+            mobileMenu.classList.add("translate-x-full");
+            document.body.classList.remove("overflow-hidden");
+            mobileMenuBtn?.setAttribute("aria-expanded", "false");
+        }
     }
 
-    mobileMenuBtn?.addEventListener("click", toggleMenu);
-    closeMenuBtn?.addEventListener("click", toggleMenu);
+    mobileMenuBtn?.addEventListener("click", () => toggleMenu());
+    closeMenuBtn?.addEventListener("click", () => toggleMenu(false));
 
     mobileLinks.forEach((link) => {
-        link.addEventListener("click", toggleMenu);
+        link.addEventListener("click", () => toggleMenu(false));
+    });
+
+    window.addEventListener("resize", () => {
+        if (!isMobileView()) {
+            toggleMenu(false);
+            if (topbar) {
+                topbarHeight = topbar.offsetHeight;
+            }
+        }
     });
 </script>
