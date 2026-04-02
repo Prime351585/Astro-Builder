@@ -3,6 +3,24 @@ import { Image } from "astro:assets";
 import icon from "/public/icon.webp";
 import instagramIcon from "/public/instagram-icon.svg";
 import linkedinIcon from "/public/linkedin-icon.svg";
+
+const currentPathname = Astro.url.pathname;
+
+const isActiveLink = (href: string) => {
+    if (href === "/") {
+        return currentPathname === "/";
+    }
+
+    return currentPathname === href || currentPathname.startsWith(href);
+};
+
+const desktopLinkClass = (href: string) =>
+    `relative transition-colors py-2 group ${
+        isActiveLink(href) ? "text-primary" : "hover:text-primary"
+    }`;
+
+const mobileLinkClass = (href: string) =>
+    `transition-colors mobile-link ${isActiveLink(href) ? "text-primary" : "hover:text-primary"}`;
 ---
 
 <header class="fixed w-full z-50 transition-all duration-300" id="main-header">
@@ -69,7 +87,7 @@ import linkedinIcon from "/public/linkedin-icon.svg";
                     />
                 </a>
                 <a
-                    href="https://www.linkedin.com/company/dwizzy-infra"
+                    href="https://in.linkedin.com/company/dwizzy-infra"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="hover:opacity-80 transition-opacity"
@@ -107,77 +125,105 @@ import linkedinIcon from "/public/linkedin-icon.svg";
                     <li>
                         <a
                             href="/"
-                            class="relative hover:text-primary transition-colors py-2 group"
+                            class={desktopLinkClass("/")}
                         >
                             Home
                             <span
-                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+                                class:list={{
+                                    "absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300": true,
+                                    "w-full": isActiveLink("/"),
+                                    "w-0 group-hover:w-full": !isActiveLink("/"),
+                                }}
                             ></span>
                         </a>
                     </li>
                     <li>
                         <a
                             href="/about/"
-                            class="relative hover:text-primary transition-colors py-2 group"
+                            class={desktopLinkClass("/about/")}
                         >
                             About Us
                             <span
-                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+                                class:list={{
+                                    "absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300": true,
+                                    "w-full": isActiveLink("/about/"),
+                                    "w-0 group-hover:w-full": !isActiveLink("/about/"),
+                                }}
                             ></span>
                         </a>
                     </li>
                     <li>
                         <a
                             href="/services/"
-                            class="relative hover:text-primary transition-colors py-2 group"
+                            class={desktopLinkClass("/services/")}
                         >
                             Services
                             <span
-                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+                                class:list={{
+                                    "absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300": true,
+                                    "w-full": isActiveLink("/services/"),
+                                    "w-0 group-hover:w-full": !isActiveLink("/services/"),
+                                }}
                             ></span>
                         </a>
                     </li>
                     <li>
                         <a
                             href="/projects/"
-                            class="relative hover:text-primary transition-colors py-2 group"
+                            class={desktopLinkClass("/projects/")}
                         >
                             Projects
                             <span
-                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+                                class:list={{
+                                    "absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300": true,
+                                    "w-full": isActiveLink("/projects/"),
+                                    "w-0 group-hover:w-full": !isActiveLink("/projects/"),
+                                }}
                             ></span>
                         </a>
                     </li>
                     <li>
                         <a
                             href="/certifications/"
-                            class="relative hover:text-primary transition-colors py-2 group"
+                            class={desktopLinkClass("/certifications/")}
                         >
                             Certifications
                             <span
-                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+                                class:list={{
+                                    "absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300": true,
+                                    "w-full": isActiveLink("/certifications/"),
+                                    "w-0 group-hover:w-full": !isActiveLink("/certifications/"),
+                                }}
                             ></span>
                         </a>
                     </li>
                     <li>
                         <a
                             href="/blog/"
-                            class="relative hover:text-primary transition-colors py-2 group"
+                            class={desktopLinkClass("/blog/")}
                         >
                             Blog
                             <span
-                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+                                class:list={{
+                                    "absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300": true,
+                                    "w-full": isActiveLink("/blog/"),
+                                    "w-0 group-hover:w-full": !isActiveLink("/blog/"),
+                                }}
                             ></span>
                         </a>
                     </li>
                     <li>
                         <a
                             href="/contact/"
-                            class="relative hover:text-primary transition-colors py-2 group"
+                            class={desktopLinkClass("/contact/")}
                         >
                             Contact
                             <span
-                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+                                class:list={{
+                                    "absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300": true,
+                                    "w-full": isActiveLink("/contact/"),
+                                    "w-0 group-hover:w-full": !isActiveLink("/contact/"),
+                                }}
                             ></span>
                         </a>
                     </li>
@@ -242,49 +288,49 @@ import linkedinIcon from "/public/linkedin-icon.svg";
                 <li>
                     <a
                         href="/"
-                        class="hover:text-primary transition-colors mobile-link"
+                        class={mobileLinkClass("/")}
                         >Home</a
                     >
                 </li>
                 <li>
                     <a
                         href="/about/"
-                        class="hover:text-primary transition-colors mobile-link"
+                        class={mobileLinkClass("/about/")}
                         >About Us</a
                     >
                 </li>
                 <li>
                     <a
                         href="/services/"
-                        class="hover:text-primary transition-colors mobile-link"
+                        class={mobileLinkClass("/services/")}
                         >Services</a
                     >
                 </li>
                 <li>
                     <a
                         href="/projects/"
-                        class="hover:text-primary transition-colors mobile-link"
+                        class={mobileLinkClass("/projects/")}
                         >Projects</a
                     >
                 </li>
                 <li>
                     <a
                         href="/certifications/"
-                        class="hover:text-primary transition-colors mobile-link"
+                        class={mobileLinkClass("/certifications/")}
                         >Certifications</a
                     >
                 </li>
                 <li>
                     <a
                         href="/blog/"
-                        class="hover:text-primary transition-colors mobile-link"
+                        class={mobileLinkClass("/blog/")}
                         >Blog</a
                     >
                 </li>
                 <li>
                     <a
                         href="/contact/"
-                        class="hover:text-primary transition-colors mobile-link"
+                        class={mobileLinkClass("/contact/")}
                         >Contact</a
                     >
                 </li>
@@ -325,7 +371,7 @@ import linkedinIcon from "/public/linkedin-icon.svg";
                         />
                     </a>
                     <a
-                        href="https://www.linkedin.com/company/dwizzy-infra"
+                        href="https://in.linkedin.com/company/dwizzy-infra"
                         target="_blank"
                         class="text-white hover:text-primary"
                     >

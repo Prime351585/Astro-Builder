@@ -43,6 +43,10 @@ import Footer from "../components/modern/Footer.astro";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="canonical" href={canonicalURL} />
 		<style>
+			:root {
+				--site-scale: 0.8;
+			}
+
 			 @font-face {
         font-family: 'Poppins';
         font-style: normal;
@@ -97,6 +101,15 @@ import Footer from "../components/modern/Footer.astro";
 
 			body {
 				scroll-behavior: smooth;
+				zoom: var(--site-scale);
+			}
+
+			@supports not (zoom: 1) {
+				body {
+					transform: scale(var(--site-scale));
+					transform-origin: top left;
+					width: calc(100% / var(--site-scale));
+				}
 			}
 
 			/* Smooth scrolling for anchor links with navbar offset */
