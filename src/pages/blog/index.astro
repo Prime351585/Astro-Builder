@@ -7,6 +7,8 @@ import Blog2Img from "../../assets/blogImages/Blog2.jpg";
 import Blog3Img from "../../assets/blogImages/Blog3.jpg";
 import Blog4Img from "../../assets/blogImages/Blog4.webp";
 import Blog5Img from "../../assets/blogImages/Blog5.webp";
+import Blog6Img from "../../assets/blogImages/Blog6.webp";
+
 // Blog post type definition
 interface BlogPost {
     title: string;
@@ -20,6 +22,15 @@ interface BlogPost {
 
 // Blog posts data - you'll add actual blog posts here
 const blogPosts: BlogPost[] = [
+    {
+        title: "What is Pile Load Testing? Methods & Benefits for Infrastructure",
+        slug: "pile-load-testing-guide",
+        excerpt: "Learn static & dynamic pile load testing methods to ensure foundation safety. Dwizzy Infra provides certified load testing for bridges, towers & railways.",
+        date: "2026-04-14",
+        category: "Infrastructure",
+        readTime: "9 min read",
+        image: Blog6Img,
+    },
     {
         title: "Monopole vs Lattice Tower: Which Structure Is Right for Your Project?",
         slug: "monopole-vs-lattice-tower",
