@@ -15,7 +15,7 @@ When a user asks you to upload a blog to a website, **first collect**:
 
 ## Creating the blog file
 
-1. Open **2–3 existing** blog files under `src/pages/blog/` and copy their **exact** structure (this project uses `.astro` pages with a metadata object such as `post`, imports for `Layout` and `Image`, structured data, and HTML sections—not Markdown frontmatter in a standalone sense).
+1. Open **1–2 existing** blog files under `src/pages/blog/` and copy their **exact** structure (this project uses `.astro` pages with a metadata object such as `post`, imports for `Layout` and `Image`, structured data, and HTML sections—not Markdown frontmatter in a standalone sense).
 2. Use those files as the **only** template. **Do not invent, rephrase, reformat, or summarize** the user’s supplied text—place their content into the same layout/components the siblings use.
 3. Save the new page beside the others (filename/slug pattern must match how existing posts name files and routes).
 4. **Read time**: derive from word count at **~200 words per minute**; express in the same string style as siblings (e.g. `"8 min read"`).
